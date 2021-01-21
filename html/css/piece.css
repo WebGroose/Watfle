@@ -1,0 +1,23 @@
+
+
+#info
+{
+    padding-left: 200px;
+    padding-top: 100px;
+}
+
+.piecePoster
+{
+    width: 200px;
+    height: 280px;
+    padding-left: 100px;   
+    padding-right: 50px;
+    float: left;
+    clear: both;
+}
+
+.genreTag
+{
+    padding-top: 50px;
+    text-emphasis: none;
+}
