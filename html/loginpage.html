@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+<meta charset="UTF-8"/>
     <title>login Page</title>
-    <link rel="styleheet" type="text/css" href="style.css">
+    <link rel="styleheet" type="text/css" href="loginpage.css">
 <script>
 function login(){
-                var id = documetnt.getElementById("id").value;
-                var pwd = document.getElementById("pwd").value;
+    var id = document.getElementById("id").value;
+    var pwd = document.getElementById("pwd").value;
 
-                if(id == "min"){
-                    if(pwd = "1234"){
-                        document.getElementById("Id").style.visibility = "hidden";
-                        document.getElementById("pwd").style.visibility = "hidden";
-                        document.getElementById("login").style.visibility = "hidden";
-
-                        document.getElmentById("print_id").innerHTML = id;
-                    }
-                } else{
-                    alert("아이디 또는 비밀번호를 잘 못 입력하였습니다.");
-                }
-                </script>
-                </head>
+    if(id == "min"){
+        if(pwd == "1234"){
+            document.getElementById("id").style.visibility = "hidden";
+            document.getElementById("pwd").style.visibility = "hidden";
+            document.getElmentById("print_id").innerHTML = id+"님";
+        }
+    } else{
+        alert("아이디 또는 비밀번호를 잘 못 입력하였습니다.");
+    }
+}
+</script>
+</head>
 <body>
-    <div id = "frm">
-        <form action="process.php" method="POST">
-            <p>
-                <label>Username:</label>
-                <input type="text" id="user" name="user"/>
+<div id="frm">
+<form action="process.php" method="POST">
+            <p>	
+				<input placeholder="Username" id="id" type="text"></input>
             </p>
             <p>
-                <label>Password:</label>
-                <input type="password" id="pass" name="pass"/>
+				<input placeholder="Password" id="pwd" type="password"></input>
+			</p>
+			<p>
+                <button onclick= "login()" id="login">로그인</button>
             </p>
-            <p>
-                <input type="submit" id="btn" value="Login"/>
-            </p>
-        </form>
-    </div>
+            <p class="forget-msg">비밀번호를 잊으셨나요? | 회원가입</p>
+            </form>
+            </div>
 </body>
 </html>
