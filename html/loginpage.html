@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
     <title>login Page</title>
-    <link rel="styleheet" type="text/css" href="loginpage.css">
+    <link rel="styleheet" href="loginpage.css">
 <script>
 function login(){
     var id = document.getElementById("id").value;
@@ -23,19 +23,21 @@ function login(){
 </script>
 </head>
 <body>
-<div id="frm">
-<form action="process.php" method="POST">
-            <p>	
+<div class="main-container">
+<div class="main-wrap">
+<section class="login-input-section-wrap">
+            <div class= "login-input-wrap">	
 				<input placeholder="Username" id="id" type="text"></input>
-            </p>
-            <p>
-				<input placeholder="Password" id="pwd" type="password"></input>
-			</p>
-			<p>
-                <button onclick= "login()" id="login">로그인</button>
-            </p>
-            <p class="forget-msg">비밀번호를 잊으셨나요? | 회원가입</p>
-            </form>
             </div>
+            <div class="login-input-wrap pwd-wrap">
+				<input placeholder="Password" id="pwd" type="password"></input>
+			</div>
+			<div class="login-btn-wrap">
+                <button onclick= "login()" id="login">로그인</button>
+            </div>
+            <p class="forget-msg">비밀번호를 잊으셨나요? | 회원가입</p>
+            </section>
+            </div>
+	</div>
 </body>
 </html>
