@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8"/>
+    <title>login Page</title>
+    <link rel="stylesheet" href="loginpage.css">
+<script>
+function login(){
+    var id = document.getElementById("id").value;
+    var pwd = document.getElementById("pwd").value;
+
+    if(id == "min"){
+        if(pwd == "1234"){
+            document.getElementById("id").style.visibility = "hidden";
+            document.getElementById("pwd").style.visibility = "hidden";
+            document.getElmentById("print_id").innerHTML = id+"님";
+        }
+    } else{
+        alert("아이디 또는 비밀번호를 잘 못 입력하였습니다.");
+    }
+}
+</script>
+</head>
+<body>
+<div class="main-container">
+<div class="main-wrap">
+<section class="login-input-section-wrap">
+            <div class= "login-input-wrap">	
+				<input placeholder="Username" id="id" type="text"></input>
+            </div>
+            <div class="login-input-wrap pwd-wrap">
+				<input placeholder="Password" id="pwd" type="password"></input>
+			</div>
+			<div class="login-btn-wrap">
+                <button onclick= "login()" id="login">로그인</button>
+            </div>
+            <p class="forget-msg">비밀번호를 잊으셨나요? | 회원가입</p>
+            </section>
+            </div>
+	</div>
+</body>
+</html>
