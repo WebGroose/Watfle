@@ -1,3 +1,4 @@
+<!-- 개념 설명 참고 https://private.tistory.com/24 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,13 +7,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-	<!-- 동기 통신 -->
+	<!-- 동기 방식 -->
 	<form action="formServer.php" method="POST">
 		<input type="text" name="id">
 		<input type="submit" name="form" value="제출">
 	</form>
 	<script type="text/javascript">
-		// 비동기 통신
+		// 비동기 방식
 		axios.defaults.baseURL = 'http://watfle2.dothome.co.kr';
 		axios.post('/formServer.php', {
 			id: 'hello'
