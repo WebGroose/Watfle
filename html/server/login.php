@@ -1,9 +1,9 @@
 <meta charset="utf-8">
 <?php
+require_once 'config.php';
+
 $userID = $_POST['user_id'];
 $userPW = $_POST['user_pw'];
-
-include 'connection.php';
 
 $query = 'select user_id, user_pw from userdata where user_id = "'.$userID.'";';
 $result = mysqli_query($connect, $query);
@@ -23,4 +23,3 @@ if (!password_verify($userPW, $userdata[1])) {
 }
 
 echo "로그인 성공";
-?>

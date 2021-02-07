@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<!-- 동기 통신 -->
+	<form action="formServer.php" method="POST">
+		<input type="text" name="id">
+		<input type="submit" name="form" value="제출">
+	</form>
+	<script type="text/javascript">
+		// 비동기 통신
+		axios.defaults.baseURL = 'http://watfle2.dothome.co.kr';
+		axios.post('/formServer.php', {
+			id: 'hello'
+		})
+		.then(function (response) {
+			console.log(response);
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+	</script>
+</body>
+</html>
