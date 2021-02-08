@@ -22,14 +22,14 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
 
-echo $response;
+$decode = json_decode($response);
 
-/*$decode = json_decode($response);
 $result = [];
-for ($i = 0; $i < $response->total_results; $i++) { 
-	if ($i >= 5) break;
-	array_push($result[], $response->results[$i]);
+for ($i = 0; $i < count($decode->results); $i++) {
+	if ($i >= 5) break;// 가공할 최대 데이터 개수 5개
+	$result[$i] = new stdClass();
+	$result[$i]->id = $decode->results[$i]->id;
+	$result[$i]->title = $decode->results[$i]->title;
 }
 
-var_dump($result);
-echo json_encode($result);*/
+echo json_encode($result);
