@@ -21,31 +21,39 @@ function curlGET($url) {
 	return json_decode($response);
 };
 
+$num = $_GET['num'];
 $query = $_GET['query'];
 
-$searchResult = curlGET('https://api.themoviedb.org/3/search/multi?api_key='.$api_key.'&language=ko&query='.$query);
-
-// var_dump($searchResult);
+$searchResult = curlGET('https://api.themoviedb.org/3/search/multi?api_key='.$api_key.'&language=ko&region=410&query='.urlencode($query));
 
 $result = [];
 for ($i = 0; $i < $searchResult->total_pages; $i++) {
-	if ($i > 0) $searchResult = curlGET('https://api.themoviedb.org/3/search/multi?api_key='.$api_key.'&language=ko&query='.$query.'&page='.($i + 1));
-	for ($j = 0; $j < count($searchResult->results); $i++) {
+	if ($i > 0) $searchResult = curlGET('https://api.themoviedb.org/3/search/multi?api_key='.$api_key.'&language=ko&region=410&query='.$query.'&page='.($i + 1));
+	for ($j = 0; $j < count($searchResult->results); $j++) {
 		if (count($result) >= 5) break 2;// 가공할 최대 데이터 개수 5개
 
-		$id = $searchResult->results[$i]->id;
-		$media_type = $searchResult->results[$i]->media_type;
+		$id = $searchResult->results[$j]->id;
+		$media_type = $searchResult->results[$j]->media_type;
 		$title = '';
 		$provider = [];
 
-		if ($media_type == 'movie') $title = $searchResult->results[$i]->title;
-		else if ($media_type == 'tv') $title = $searchResult->results[$i]->name;
-		else continue 2;
+		if ($media_type == 'movie') $title = $searchResult->results[$j]->title;
+		else if ($media_type == 'tv') $title = $searchResult->results[$j]->name;
+		else continue;
 
 		$providerResult = curlGET('https://api.themoviedb.org/3/'.$media_type.'/'.$id.'/watch/providers?api_key='.$api_key);// lan ko?
 
-		if (isset($providerResult->results->KR) && isset($providerResult->results->KR->flatrate)) foreach ($providerResult->results->KR->flatrate as $value) $provider[] = $value->provider_name;
-		else continue 2;
+		if (isset($providerResult->results->KR->flatrate)) {
+			$count = 0;
+			foreach ($providerResult->results->KR->flatrate as $value) {
+				if ($value->provider_name == 'Netflix' || $value->provider_name == 'Watcha') {
+					$provider[] = $value->provider_name;
+					$count++;
+				}
+			}
+			if ($count == 0) continue;
+		}
+		else continue;
 
 		$result[] = [
 			'id' => $id,
@@ -55,4 +63,7 @@ for ($i = 0; $i < $searchResult->total_pages; $i++) {
 	}
 }
 
-echo json_encode($result);
+echo json_encode([
+	'num' => $num,
+	'result' => $result
+]);

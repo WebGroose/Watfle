@@ -17,8 +17,7 @@
 			<a href=".html" id="search">검색창</a>&nbsp;&nbsp;
 			<a href=".html" >계정관리</a>&nbsp;&nbsp;
 			<input type="text" name="query" placeholder="검색">
-			<input type="button" name="search" value="검색">
-			<ul class="search-list"></ul><!-- search-list--display-none -->
+			<ul class="search-list search-list--display-none"></ul>
 		</div>
 	</header>
 	<!--content part-->
@@ -52,23 +51,39 @@
 
 		const app = {
 			init () {
-				// $('input[name=query]').addEventListener('keyup', app.sendQuery);
-				$('input[name=search]').addEventListener('click', app.sendQuery);
-				// $('input[name=query]').addEventListener('focusin', app.showSearchList);
-				// $('input[name=query]').addEventListener('focusout', app.hideSearchList);
+				$('input[name=query]').addEventListener('keyup', app.sendQuery);
+				$('input[name=query]').addEventListener('focusin', app.showSearchList);
+				$('input[name=query]').addEventListener('focusout', app.hideSearchList);
 			},
 			sendQuery () {
-				axios.get('/server/search.php?query='+$('input[name=query]').value)
+				let query = $('input[name=query]').value;
+				if (query == '') {
+					$('.search-list').innerHTML = '';
+					return;
+				}
+				if (query == app.searchTemp) return;
+				$('.search-list').innerHTML = '<div class="preloader"></div>';
+				app.searchNum++;
+				axios.get('/server/search.php?num='+app.searchNum+'&query='+query)
 				.then(function (response) {
 					console.log(response.data);
+					if (app.searchNum != response.data.num) return;
+					let query = $('input[name=query]').value;
+					if (query == '') {
+						$('.search-list').innerHTML = '';
+						return;
+					}
+					app.searchNum = 0;
+					let result = response.data.result;
 					let resultTag = '';
-					if (response.data.length == 0) resultTag = '검색 결과가 없습니다 ㅠ0ㅠ';
-					else response.data.forEach(v => {
+					if (result.length == 0) resultTag = '검색 결과가 없습니다 ㅠ0ㅠ';
+					else result.forEach(v => {
 						let providerTag = '';
 						v.provider.forEach(w => { providerTag += '<span class="search-list__tag">'+w+'</span>'; });
 						resultTag += '<li><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span>'+providerTag+'</span></a></li>'; });
-					$('.search-list').innerHTML = resultTag;
-				})
+						$('.search-list').innerHTML = resultTag;
+						app.searchTemp = query;
+					})
 				.catch(function (error) {
 					console.log(error);
 				});
@@ -80,7 +95,9 @@
 			hideSearchList () {
 				console.log('focusout');
 				setTimeout(() => { $('.search-list').classList.add('search-list--display-none'); }, 100);
-			}
+			},
+			searchTemp: '',
+			searchNum: 0
 		};
 
 		document.addEventListener('DOMContentLoaded', app.init);

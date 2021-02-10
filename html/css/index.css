@@ -23,10 +23,24 @@
 	line-height: 30px;
 }
 .search-list__tag{
-	padding: 1px;
-	margin: 1px;
+	padding: 2px;
+	margin: 2px;
 	background-color: orange;
-	border-radius: 2px;
+	border-radius: 4px;
+	font-size: 12px;
+}
+@keyframes rotate{
+	0% { transform: rotate(0); }
+	100% { transform: rotate(360deg); }
+}
+.preloader{
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+	border: 5px solid #fff;
+	border-top: 5px solid pink;
+	border-radius: 20px;
+	animation: rotate 1s ease infinite;
 }
 .topMovie{
 	padding-left:450px;
