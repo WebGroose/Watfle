@@ -22,6 +22,12 @@
 	background-color: #fff;
 	line-height: 30px;
 }
+.search-list__tag{
+	padding: 1px;
+	margin: 1px;
+	background-color: orange;
+	border-radius: 2px;
+}
 .topMovie{
 	padding-left:450px;
 	padding-top: 60px;

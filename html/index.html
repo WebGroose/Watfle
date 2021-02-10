@@ -17,7 +17,8 @@
 			<a href=".html" id="search">검색창</a>&nbsp;&nbsp;
 			<a href=".html" >계정관리</a>&nbsp;&nbsp;
 			<input type="text" name="query" placeholder="검색">
-			<ul class="search-list search-list--display-none"></ul>
+			<input type="button" name="search" value="검색">
+			<ul class="search-list"></ul><!-- search-list--display-none -->
 		</div>
 	</header>
 	<!--content part-->
@@ -51,17 +52,21 @@
 
 		const app = {
 			init () {
-				$('input[name=query]').addEventListener('keyup', app.sendQuery);
-				$('input[name=query]').addEventListener('focusin', app.showSearchList);
-				$('input[name=query]').addEventListener('focusout', app.hideSearchList);
-				$('input[name=query]').addEventListener('focusout', app.hideSearchList);
+				// $('input[name=query]').addEventListener('keyup', app.sendQuery);
+				$('input[name=search]').addEventListener('click', app.sendQuery);
+				// $('input[name=query]').addEventListener('focusin', app.showSearchList);
+				// $('input[name=query]').addEventListener('focusout', app.hideSearchList);
 			},
 			sendQuery () {
 				axios.get('/server/search.php?query='+$('input[name=query]').value)
 				.then(function (response) {
+					console.log(response.data);
 					let resultTag = '';
 					if (response.data.length == 0) resultTag = '검색 결과가 없습니다 ㅠ0ㅠ';
-					else response.data.forEach(v => { resultTag += '<li><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'</a></li>'; });
+					else response.data.forEach(v => {
+						let providerTag = '';
+						v.provider.forEach(w => { providerTag += '<span class="search-list__tag">'+w+'</span>'; });
+						resultTag += '<li><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span>'+providerTag+'</span></a></li>'; });
 					$('.search-list').innerHTML = resultTag;
 				})
 				.catch(function (error) {
