@@ -3,29 +3,32 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="myaccount.css">
+	 <style>
+    a:link{color:white;
+    text-decoration:none;
+    font-weight:bold;}
+    </style>
 </head>
 <body>
 	<header>
 		<div class="top" style="text-align:center">
-			<a href=".html">Review</a> &nbsp;&nbsp;
-			<a href=".html">(왓챠/넷플)</a> &nbsp;&nbsp;
+			<a href=".html">=Review</a> &nbsp;&nbsp;
+			<div class="oval" style="text-align:center">
+			<a href=".html">NET</a>&nbsp;/
+			<a href=".html">WATC</a> &nbsp;&nbsp;
+			</div>
 			<a href=".html" id="search">검색창</a>&nbsp;&nbsp;
 			<a href=".html" >계정관리</a>&nbsp;&nbsp;
 		</div>
 	</header>
-	<!-- <div class="header">
-		<div class="globalwidth">
-			<a href="#" class="brand">Review</a>
-			<div class="toggle">(왓챠/넷플)</div>
-			<div class="searchbox">검색창</div>
-			<div class="account">계정관리</div>
-		</div>
-	</div> -->
 	<div class="container">
 		<div class="globalwidth">
 			<div class="info">
-				<div>아이디</div>
 				<div class="change-pw">비밀번호 변경</div>
+				<input placeholder="Password" id="pwd" type="password"></input>
+				<div class="change-pw-check">비밀번호 변경확인</div>
+				<input placeholder="Password" id="pwdck" type="password"></input>
+			</div>
 			</div>
 			<div>내가 클릭한 태그들 :</div>
 			<div class="tag"></div>

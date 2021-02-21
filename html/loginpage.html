@@ -5,6 +5,11 @@
 <meta charset="UTF-8"/>
     <title>login Page</title>
     <link rel="stylesheet" href="loginpage.css">
+    <style>
+    a:link{color:#505050;
+    text-decoration:none;
+    font-weight:bold;}
+    </style>
 <script>
 function login(){
     var id = document.getElementById("id").value;
@@ -23,9 +28,21 @@ function login(){
 </script>
 </head>
 <body>
+<header>
+<div class="top" style="align:center">
+<div calss="review" style="text-align:left">
+<a href=".html">=Review</a> &nbsp;&nbsp;
+</div>
+<div class="oval" style="text-align:center">
+      <a href=".html" >NET</a>&nbsp;/
+      <a href=".html" >WATC</a>&nbsp;&nbsp;
+      </div>
+   </div>
+   </header>
 <div class="main-container">
 <div class="main-wrap">
 <section class="login-input-section-wrap">
+<div class = "watfle">WAFLE</div>
             <div class= "login-input-wrap">	
 				<input placeholder="Username" id="id" type="text"></input>
             </div>
@@ -35,7 +52,8 @@ function login(){
 			<div class="login-btn-wrap">
                 <button onclick= "login()" id="login">로그인</button>
             </div>
-            <p class="forget-msg">비밀번호를 잊으셨나요? | 회원가입</p>
+            <p class="forget-msg">비밀번호를 잊으셨나요?</p>
+            <p class="idfind">아이디 찾기 | 비밀번호 찾기 | 회원 가입</p>
             </section>
             </div>
 	</div>
