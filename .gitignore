@@ -2,4 +2,4 @@
 .DS_Store
 
 # common
-connection.php
+config.php

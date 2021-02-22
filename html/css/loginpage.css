@@ -1,0 +1,95 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+
+body{
+    background-color:#282828;
+
+}
+
+.top{
+	background-color: grey;
+	text-align: center;
+	padding:10px;
+}
+
+
+.oval{
+		width: 140px;
+		height: 30px;
+		background: red;
+		border-radius: 100px / 50px;
+		color:white;
+		font-weight:bold;
+}
+
+
+.main-container{
+	width:100%;
+	align-items:center;
+    margin-top: 20px;
+    background-color: #282828;
+}
+
+.main-container .main-wrap{
+    width:100%;
+}
+
+.watfle{
+	align-items: center;
+	font-size: 42px;
+	font-weight:bold;
+	color:white;
+}
+
+
+.login-input-section-wrap{
+	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-input-wrap{
+	margin-top:30px;
+	width: 430px;
+	height :40px;
+	border: solid 1px black;
+	background: white;
+}
+.pwd-wrap{
+	margin-top: 13px;
+}
+.login-input-wrap input{
+	border: none;
+	width:410px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
+.login-btn-wrap {
+	padding-top: 13px;
+}
+.login-btn-wrap button{
+	width: 430px;
+	height :48px;
+	font-size: 18px;
+	background-color:#787878;
+	color: black;
+	border: solid 1px #505050;
+}
+
+.forget-msg{
+	font-size: 14px;
+	margin-top: 20px;
+	color:white;
+}
+
+.idfind{
+	font-size: 18px;
+	margin-top: 20px;
+	color:white;
+}

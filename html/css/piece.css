@@ -1,58 +1,157 @@
-#info
-{
-    padding-left: 200px;
-    padding-top: 100px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
-.piecePoster
-{
-    width: 250px;
-    height: 350px;
-    padding-left: 100px;
-    padding-right: 50px;
-    float: left;
-    clear: both;
-}
+body{
+  font-family: 'Nanum Pen Script', cursive;
+  margin:0;
+  /*background-color: #292E33;*/
 
-.genreTag
-{
-    padding-top: 50px;
-    text-emphasis: none;
 }
-.pieceStory{
-  width:1000px;
-  height:350px;
+.global-width{
+  width:1024px;
+  margin: 0 auto;
 }
-.writer{
-  text-align: right;
-}
-.input{
-  width:1000px;
+.header{
+  width:100vw;
   height:50px;
+}
+.brand{
+  display: flex;
+  float:left;
+  width:100px;
+  height: 50px;
   text-align:center;
-  margin:0 auto;
 }
-.text{
-  resize:none;
+.brand__bar{
+  background-image: url(../img/menu.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width:50px;
+  height:50px;
+  line-height:25px;
+  /* border-radius: 7.5px; */
 }
-.sort{
-  margin-top: 80px;
-  margin-right: 300px;
-  text-align: right;
+.brand__watfle{
+  color: #7F7F7F;
+  width:70px;
+  height:50px;
+  line-height:50px;
+  font-size:2rem;
+}
+.toggle{
+  float:left;
+  width:100px;
+  height:20px;
+  /* margin-left: calc(50% - 100px - 50px);*/
+  margin-left:362px;
+  margin-top: 15px;
+  background-color: pink;
+  line-height:20px;
+  text-align:center;
+}
+.search-box{
+  display: flex;
+  float:right;
+  width:200px;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+  line-height:30px;
+  text-align:center;
+}
+.search-box__search{
+  width:30px;
+  height:30px;
+  background-image: url(../img/zoom.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.account-box{
+  background-image: url(../img/user.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  float:right;
+  width:200px;
+  height:40px;
+  margin-top: 5px;
+  line-height:40px;
+  text-align:center;
+}
+.content{
+  width:100vw;
+  min-height: calc(100vh - 50px);
+}
+.top-review{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width:100%;
+  height: 600px;
+}
+.poster-box{
+  background-image: url(../img/lalaland.jpg);
+  background-size: cover;
+  background-position: center;
+  width:200px;
+  height:300px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px 0 grey;
+}
+.review-box{
+  width:600px;
+}
+.review-box__title{
+  font-size: 1.5rem;
+  height:50px;
+}
+.review-box__title__movie-name{
+
+}
+.review-box__title__tag{
+  color:#B01414;
+}
+.review-box__content{
+  font-size: 1.4rem;
+  padding: 10px;
+  height:200px;
+  background-color: #000645;
+  border-radius: 20px;
+}
+.review-box__title__content{
+  height:180;
+  color:#F2F2F2;
+}
+.review-box__title__name{
+  height:20px;
+  padding-right: 10px;
+  float:right;
+  color:#7F7F7F;
+}
+.middle-review{
+
+}
+.writer-box{
+  text-align:center;
+}
+.writer__text{
+  resize: none;
 }
 .review{
   margin:10px auto;
   list-style: none;
-  width:900px;
+  width:750px;
+  height:100px;
   padding:0;
 }
 .review-total{
+  width:150px;
   height:100px;
   margin-top:18px;
-  box-shadow: 0 0 0 2px gray;
   background-color: pink;
 }
-.review-id_tag{
+.front{
   width:150px;
   float:left;
   line-height:50px;
@@ -66,21 +165,15 @@
   width:100%;
   float:left;
 }
-.review-content{
-  width:600px;
-  float:left;
-  line-height:100px;
-}
 .review-date{
   width:100px;
   float:left;
   line-height:100px;
   text-align: center;
 }
-body{
-  margin:0;
-}
-a{
-  color:black;
-  text-decoration: none;
+.footer{
+  margin-top: 100px;
+  width:100vw;
+  height:200px;
+  background-color: lightgreen;
 }

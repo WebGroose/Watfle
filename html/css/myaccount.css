@@ -1,0 +1,81 @@
+body{
+	margin: 0;
+}
+.globalwidth{
+	width: 10000px;
+	margin: 0 auto;
+	align-items:center;
+}
+
+header {
+  position: fixed;
+  width: 100%
+
+}
+.top{
+  background-color:#505050;
+  text-align: center;
+  padding:10px;
+}
+
+.oval{
+	width: 140px;
+	height: 30px;
+	background: red;
+	border-radius: 100px / 50px;
+	color:white;
+	font-weight:bold;
+}
+
+/*.header{
+	height: 100px;
+	background-color: pink;
+}
+.brand{
+	height: 100%;
+	font-size: 30px;
+	line-height: 100px;
+}*/
+.container{
+	height: 100vh;
+	background-color:#505050;
+}
+.info{
+	padding: 100px 50px 50px;
+}
+.change-pw{
+	margin-top: 20px;
+	color:white;
+}
+.pwd{
+	margin-top:30px;
+	width: 430px;
+	height :40px;
+	border: solid 1px black;
+	background: white;
+}
+
+.change-pw-check{
+	margin-top: 20px;
+	color:white;
+}
+
+.pwdck{
+	margin-top:30px;
+	width: 430px;
+	height :40px;
+	border: solid 1px black;
+	background: white;
+}
+.pwd{
+	margin-top: 13px;
+}
+.tag{
+	height: 300px;
+	margin-top: 10px;
+	background-color:#505050;
+}
+.delete-account{
+	float: right;
+	margin-top: 20px;
+}
