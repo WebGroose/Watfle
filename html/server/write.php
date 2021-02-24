@@ -1,26 +1,26 @@
 <meta charset="utf-8">
 <?php
-               // $connect = mysqli_connect("localhost", "", "", "") or die("fail");
+require_once 'config.php';
+               
                 
-                $id = $_GET[name];                      //Writer
-                $title = $_GET[title];                  //Title
-                $content = $_GET[content];              //Content
-                $date = date('Y-m-d H:i:s');            //Date
+                $id = $_GET['name'];                      //Writer
+                $title = $_GET['title'];                  //Title
+                $content = $_GET['content'];              //Content
+                $movie = $_GET['piece'];                //영화명
+                $rating = $_GET['rating'];              //별점
  
                 $URL = './index.php';                   //return URL
  
  
-                $query = "insert into board (number,title, content, date, id) 
-                        values(null,'$title', '$content', '$date', '$id')";
+                $query = 'insert into review (user_idx ,title, content, piece_id, rating) values('.$id.','.$title.', '.$content.', '.$movie.', '.$rating.' );';
  
  
-                $result = $connect->query($query);
+                $result = mysqli_query($connect, $query);
                 if($result){
-?>                  <script>
-                        alert("<?php echo "리뷰가 등록되었습니다."?>");
-                        location.replace("<?php echo $URL?>");
-                    </script>
-<?php
+                    echo '<script>
+                    alert("<?php echo "리뷰가 등록되었습니다."?>");
+                    location.replace("<?php echo $URL?>");
+                </script>';
                 }
                 else{
                         echo "FAIL";
@@ -28,3 +28,4 @@
  
                 mysqli_close($connect);
 ?>
+
