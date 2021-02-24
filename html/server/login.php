@@ -31,4 +31,6 @@ if (!password_verify($userPW, $user[1])) {
 	exit();
 }
 
+$_SESSION['user_id'] = $userID;
+
 header('location:index.html');

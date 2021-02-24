@@ -26,7 +26,6 @@ $result = mysqli_query($connect, $query);
 var_dump($result);// $result 확인용
 
 /*
-session_start();
 $_SESSION['user_id'] = $userID;
 
 header('location:index.html');
