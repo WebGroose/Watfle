@@ -5,23 +5,41 @@
     <title></title>
     <link rel="stylesheet" href="css/index.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
   </head>
   <body>
+    <!-- header-->
       <div class="header">
         <div class="global-width">
-          <div class="brand">
-            <div class="brand__bar"></div>
-            <div class="brand__watfle">Watfle</div>
+          <a href="index.html">
+            <div class="brand">
+              <div class="brand__bar"></div>
+              <div class="brand__watfle">Watfle</div>
+            </div>
+          </a>
+          <div class="toggle">toggle
+            <!--
+            <input type="checkbox" id="switch1">
+            <label for="switch1" class="round">
+              <div class="write">
+                <div class="one">NET</div>
+                <div class="slice"> / </div>
+                <div class="two">WAT</div>
+              </div>
+            </label>-->
           </div>
-          <div class="toggle">toggle</div>
-          <div class="account-box"></div>
+          <a href="myaccount.html">
+            <div class="account-box"></div>
+          </a>
           <div class="search-box">
-            <div class="search-box__search">search</div>
             <input type="text" name="query" placeholder="검색">
+            <div class="search-box__search"></div>
 			      <ul class="search-list search-list--display-none"></ul>
           </div>
         </div>
       </div>
+      <!-- content-->
+      <!--top-->
       <div class="content">
         <div class="global-width">
           <div class="top-content">
@@ -50,10 +68,33 @@
           </div>
         </div>
       </div>
+
       <div class="footer">
-        <div class="global-width">footer</div>
+        <div class="global-width">
+          <div class="watfle">(주)WATFLE</div>
+          <div class="information">
+            <div class="date">⏰ [2020-2학기] 겨울방학 아이그루스 웹프로젝트</div>
+            <div class="member">
+                  <div class="member-person">🌲 팀장:이호영</div>
+                  <div class="member-person">🌱 팀원: 김민경 | 김민정 | 김예진</div>
+            </div>
+          </div>
+          <div class="copy">Copyright &copy; 2021 WATFLE</div>
+          </div>
     </div>
     <script type="text/javascript">
+    /*토글*/
+    var toggle=false;
+
+      btn.addEventListener('click',function(){
+        toggle = !toggle;
+        if(toggle==true) selector.classList.add('on');
+        else selector.classList.remove('on');
+      },false);
+    /*다른 것*/
+    $(window).scroll(function() {
+    $('.header').css({left: 0 - $(this).scrollLeft()});
+    });
 		const $ = document.querySelector.bind(document);
 		const $$ = document.querySelectorAll.bind(document);
 
