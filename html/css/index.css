@@ -15,6 +15,7 @@ a{
   margin: 0 auto;
 }
 .header{
+  z-index: 1;
   position: fixed;
   background-color: #292E33;
   width:100vw;
@@ -54,8 +55,6 @@ a{
   line-height:20px;
   text-align:center;
 }
-
-
 .search-box{
   display: flex;
   float:right;
@@ -107,7 +106,9 @@ a{
   height: 500px;
 }
 .poster-box{
+  z-index: 0;
   position:relative;
+  /*position: static;*/
   width:200px;
   height: 320px;
 }

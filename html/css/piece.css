@@ -45,20 +45,20 @@ a{
   font-size:2rem;
 }
 .toggle{
+  font-size: 2rem;
   float:left;
-  width:100px;
-  height:20px;
+  width:150px;
+  height:15px;
   /* margin-left: calc(50% - 100px - 50px);*/
-  margin-left:362px;
-  margin-top: 15px;
-  background-color: pink;
+  margin-left:326px;
+  margin-top: 10px;
   line-height:20px;
   text-align:center;
 }
 .search-box{
   display: flex;
   float:right;
-  width:200px;
+  width:230px;
   height: 30px;
   margin-right: 10px;
   margin-top: 10px;
