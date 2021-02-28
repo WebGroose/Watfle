@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8"/>
+    <title>signuppage</title>
+    <link rel="stylesheet" href="signuppage.css">
+    <style>
+    a:link{color:#505050;
+    text-decoration:none;
+    font-weight:bold;}
+    </style>
+    </head>
+<body>
+<header>
+<div class="top" style="align:center">
+<div calss="review" style="text-align:left">
+<a href=".html">=Review</a> &nbsp;&nbsp;
+</div>
+<div class="oval" style="text-align:center">
+      <a href=".html" >NET</a>&nbsp;/
+      <a href=".html" >WATC</a>&nbsp;&nbsp;
+      </div>
+   </div>
+   </header>
+   <form name="write_form_member" method="post">
+<div class="main-container">
+<div class="main-wrap">
+<section class="login-input-section-wrap">
+<div class = "watfle">WAFLE</div>
+            <div class= "login-input-wrap">	
+				<input placeholder="아이디" id="id" type="text"></input>
+                <div class="id-btn">
+                <button onclick= "idbtn()" id="idbtn">아이디 중복확인</button>
+            </div>
+            </div>
+            <div class="login-input-wrap pwd-wrap">
+				<input placeholder="비밀번호" id="pwd" type="password"></input>
+			</div>
+            <div class="login-input-wrap pwd-wrap">
+				<input placeholder="비밀번호확인" id="pwdck" type="password"></input>
+			</div>
+            <div class="email">
+            <tr>
+            <th>이메일</th>
+            <td>
+            <input type='text' name="email">@
+            <input type='text' name="email_dns">
+            <select name="emailaddr">
+            <option value="">직접입력</option>
+            <option value="daum.net">daum.net</option>
+            <option value="empal.com">empal.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="hanmail.net">hanmail.net</option>
+            <option value="msn.com">msn.com</option>
+            <option value="naver.com">naver.com</option>
+            <option value="nate.com">nate.com</option>
+            </select>
+            </td>
+            </tr>
+            </div>
+            <div class="genre">
+            <tr>
+            <th>선호하는 장르:</th>
+            <td>
+            <select name='job' size='1'>
+                 <option value='1'>선택하세요</option>
+                 <option value='2'>a</option>
+                 <option value='3'>컴퓨터/인터넷</option>
+                 <option value='4'>언론</option>
+                 <option value='5'>공무원</option>
+                 <option value='6'>군인</option>
+                 <option value='7'>서비스업</option>
+                 <option value='8'>교육</option>
+           </select>
+          </td>
+        </tr>
+        </div>
+			<div class="login-btn-wrap">
+                <button onclick= "login()" id="login">회원가입</button>
+            </div>
+            </section>
+            </div>
+	</div>
+    </form>
+</body>
+</html>
