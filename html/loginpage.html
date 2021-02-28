@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8"/>
   <title>login Page</title>
   <link rel="stylesheet" href="css/loginpage.css">
   <script>
-    function login(){
+    /*function login(){
       var id = document.getElementById("id").value;
       var pwd = document.getElementById("pwd").value;
 
@@ -19,7 +18,7 @@
       } else{
         alert("아이디 또는 비밀번호를 잘 못 입력하였습니다.");
       }
-    }
+    }*/
   </script>
 </head>
 <body>
@@ -40,13 +39,13 @@
         <section class="login-input-section-wrap">
           <div class = "watfle">WATFLE</div>
           <div class= "login-input-wrap">
-            <input placeholder="Username" id="user_id" type="text"></input>
+            <input name="user_id" placeholder="Username" id="user_id" type="text"></input>
           </div>
           <div class="login-input-wrap pwd-wrap">
-            <input placeholder="Password" id="user_pwd" type="password"></input>
+            <input name="user_pw" placeholder="Password" id="user_pwd" type="password"></input>
           </div>
           <div class="login-btn-wrap">
-            <button onclick= "login()" id="login">로그인</button>
+            <input type="submit" value="로그인" id="login">
           </div>
           <p class="forget-msg">비밀번호를 잊으셨나요?</p>
           <p class="idfind">아이디 찾기 | 비밀번호 찾기 |
