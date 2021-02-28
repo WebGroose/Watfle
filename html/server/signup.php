@@ -17,7 +17,7 @@ $result = mysqli_query($connect, $query);
 if ($row = mysqli_fetch_row($result)) {
 	$_SESSION['message'] = "이미 있는 아이디입니다..!";
 	header('location:index.html');
-	exit();
+	exit();	
 }
 
 $query = 'insert into user (user_id, user_pw) values ("'.$userID.'", "'.$userPW.'");';
