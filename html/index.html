@@ -18,9 +18,9 @@
             </div>
           </a>
           <div class="toggle">
-            <span class="toggle-item toggle-item--on">WAT</span>
+            <span id="watcha" class="toggle-item toggle-item--on">WAT</span>
             /
-            <span class="toggle-item toggle-item--on">NET</span>
+            <span id="netflix" class="toggle-item toggle-item--on">NET</span>
             <!--
             <input type="checkbox" id="switch1">
             <label for="switch1" class="round">
@@ -105,16 +105,21 @@
 		const app = {
 			init () {
         $$('.toggle-item').forEach(v => {
-          v.addEventListener('click', () => { app.toggleItem(v) });
+          v.addEventListener('click', () => {
+            app.values.toggleValue[v.id] = !app.values.toggleValue[v.id];
+            app.toggle();
+          });
         });
 
 				$('input[name=query]').addEventListener('keyup', app.sendQuery);
 				$('input[name=query]').addEventListener('focusin', app.showSearchList);
 				$('input[name=query]').addEventListener('focusout', app.hideSearchList);
 			},
-      toggleItem (v) {
-        if (v.classList.contains('toggle-item--on')) v.classList.remove('toggle-item--on');
-        else v.classList.add('toggle-item--on');
+      toggle () {
+        for (const property in app.values.toggleValue) {
+          if (app.values.toggleValue[property]) $('#'+property).classList.add('toggle-item--on');
+          else $('#'+property).classList.remove('toggle-item--on');
+        }
       },
 			sendQuery () {
 				let query = $('input[name=query]').value;
@@ -122,19 +127,19 @@
 					$('.search-list').innerHTML = '';
 					return;
 				}
-				if (query == app.searchTemp) return;
-				$('.search-list').innerHTML = '<ul class="progess-circle"></ul>';
-				app.searchNum++;
-				axios.get('/server/search.php?num='+app.searchNum+'&query='+query)
+				if (query == app.values.searchTemp) return;
+				$('.search-list').innerHTML = '<div class="preloader"></div>';
+				app.values.searchNum++;
+				axios.get('/server/search.php?num='+app.values.searchNum+'&query='+query)
 				.then(function (response) {
-					console.log(response.data);
-					if (app.searchNum != response.data.num) return;
+					// console.log(response.data);
+					if (app.values.searchNum != response.data.num) return;
 					let query = $('input[name=query]').value;
 					if (query == '') {
 						$('.search-list').innerHTML = '';
 						return;
 					}
-					app.searchNum = 0;
+					app.values.searchNum = 0;
 					let result = response.data.result;
 					let resultTag = '';
 					if (result.length == 0) resultTag = '검색 결과가 없습니다 ㅠ0ㅠ';
@@ -143,7 +148,7 @@
 						v.provider.forEach(w => { providerTag += '<span class="search-list__tag">'+w+'</span>'; });
 						resultTag += '<li class="search-list__item"><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span class="search-list__tag">'+providerTag+'</span></a></li>'; });
 						$('.search-list').innerHTML = resultTag;
-						app.searchTemp = query;
+						app.values.searchTemp = query;
 					})
 				.catch(function (error) {
 					console.log(error);
@@ -157,8 +162,14 @@
 				console.log('focusout');
 				setTimeout(() => { $('.search-list').classList.add('search-list--display-none'); }, 100);
 			},
-			searchTemp: '',
-			searchNum: 0
+      values: {
+        toggleValue: {
+          watcha: true,
+          netflix: true
+        },
+        searchTemp: '',
+        searchNum: 0
+      }
 		};
 
 		document.addEventListener('DOMContentLoaded', app.init);

@@ -83,6 +83,18 @@ a{
   background-repeat: no-repeat;
   background-position: center;
 }
+.preloader{
+  width: 30px;
+  height: 30px;
+  border: 5px solid #fff;
+  border-top: 5px solid transparent;
+  border-radius: 20px;
+  animation: rotate 1s infinite;
+}
+@keyframes rotate{
+  from{ transform: rotate(0); }
+  to{ transform: rotate(360deg); }
+}
 .account-box{
   background-image: url(../img/user.png);
   background-size: contain;
@@ -102,7 +114,7 @@ a{
 .review-box__title{
   font-size: 1.7rem;
   /*color: #B490E4;*/
-  color:#B01414;;
+  color:#B01414;
 }
 .review-box__content{
   font-size: 1.4rem;
