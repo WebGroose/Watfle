@@ -89,17 +89,14 @@
     </div>
     <script type="text/javascript">
     /*토글*/
-    var toggle=false;
+    /*var toggle=false;
 
       btn.addEventListener('click',function(){
         toggle = !toggle;
         if(toggle==true) selector.classList.add('on');
         else selector.classList.remove('on');
-      },false);
-    /*다른 것*/
-    $(window).scroll(function() {
-    $('.header').css({left: 0 - $(this).scrollLeft()});
-    });
+      },false);*/
+
 		const $ = document.querySelector.bind(document);
 		const $$ = document.querySelectorAll.bind(document);
 
@@ -118,7 +115,7 @@
 					return;
 				}
 				if (query == app.searchTemp) return;
-				$('.search-list').innerHTML = '<div class="preloader"></div>';
+				$('.search-list').innerHTML = '<ul class="progess-circle"></ul>';
 				app.searchNum++;
 				axios.get('/server/search.php?num='+app.searchNum+'&query='+query)
 				.then(function (response) {
@@ -136,7 +133,7 @@
 					else result.forEach(v => {
 						let providerTag = '';
 						v.provider.forEach(w => { providerTag += '<span class="search-list__tag">'+w+'</span>'; });
-						resultTag += '<li><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span>'+providerTag+'</span></a></li>'; });
+						resultTag += '<li class="search-list__item"><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span class="search-list__tag">'+providerTag+'</span></a></li>'; });
 						$('.search-list').innerHTML = resultTag;
 						app.searchTemp = query;
 					})
