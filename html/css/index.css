@@ -84,6 +84,30 @@ a{
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.search-list{
+  position: absolute;
+  display: grid;
+  margin: 30px;
+  list-style: none;
+  background-color: grey;
+  float: left;
+  width: 145px;
+  opacity:0.85;
+  font-size: 1.2rem;
+}
+.search-list—display-none{
+}
+.search-list__item{
+  list-style:none;
+  padding: 0 10px;
+}
+.search-list__tag{
+  padding-left: 10px;
+  color:#ff5a47;
+}
+
+
 .preloader{
   width: 30px;
   height: 30px;
@@ -96,6 +120,7 @@ a{
   from{ transform: rotate(0); }
   to{ transform: rotate(360deg); }
 }
+
 .account-box{
   background-image: url(../img/user.png);
   background-size: contain;
