@@ -2,7 +2,7 @@
 
 // 정상적인 접근인지 확인
 if (!isset($_POST['user_id']) || !isset($_POST['user_pw'])) {
-	header('location:index.html');
+	header('location:index.php');
 	exit();
 }
 
@@ -16,7 +16,7 @@ $query = 'select idx from user where user_id = "'.$userID.'";';
 $result = mysqli_query($connect, $query);
 if ($row = mysqli_fetch_row($result)) {
 	$_SESSION['message'] = "이미 있는 아이디입니다..!";
-	header('location:../index.html');
+	header('location:../index.php');
 	exit();
 }
 
@@ -25,11 +25,11 @@ $result = mysqli_query($connect, $query);
 
 if (!$result) {
 	$_SESSION['message'] = "회원가입 오류..!";
-	header('location:../index.html');
+	header('location:../index.php');
 	exit();
 }
 
 $_SESSION['message'] = "회원가입 성공..!";
 $_SESSION['user_id'] = $userID;
 
-header('location:../index.html');
+header('location:../index.php');
