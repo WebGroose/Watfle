@@ -96,7 +96,8 @@ a{
   opacity:0.85;
   font-size: 1.2rem;
 }
-.search-list—display-none{
+.search-list-—display-none{
+  display: none;
 }
 .search-list__item{
   list-style:none;
@@ -106,8 +107,6 @@ a{
   padding-left: 10px;
   color:#ff5a47;
 }
-
-
 .preloader{
   width: 30px;
   height: 30px;
