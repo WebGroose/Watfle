@@ -59,10 +59,29 @@ body{
 	border: solid 1px black;
 	background: white;
 }
-.user_pwd-wrap{
+.user_pwd{
 	margin-top: 13px;
 }
-.login-input-wrap input{
+.pwdck{
+	margin-top: 13px;
+}
+
+.email{
+	margin-top:0px;
+	width: 430px;
+	height :40px;
+	border: solid 1px black;
+	background: white;
+}
+.genre{
+	margin-top:0px;
+	width: 430px;
+	height :40px;
+	border: solid 1px black;
+	background: white;
+}
+
+.signup-input-wrap input{
 	border: none;
 	width:410px;
 	margin-top: 10px;
@@ -70,26 +89,14 @@ body{
 	margin-left: 10px;
 	height:30px;
 }
-.login-btn-wrap {
+.signup-btn-wrap {
 	padding-top: 13px;
 }
-.login-btn-wrap button{
+.signup-btn-wrap button{
 	width: 430px;
 	height :48px;
 	font-size: 18px;
 	background-color:#787878;
 	color: black;
 	border: solid 1px #505050;
-}
-
-.forget-msg{
-	font-size: 14px;
-	margin-top: 20px;
-	color:white;
-}
-
-.idfind{
-	font-size: 18px;
-	margin-top: 20px;
-	color:white;
 }
