@@ -18,9 +18,9 @@
             </div>
           </a>
           <div class="toggle">
-            <span id="watcha" class="toggle-item toggle-item--on">WAT</span>
+            <span id="watcha" class="toggle-item">WAT</span>
             /
-            <span id="netflix" class="toggle-item toggle-item--on">NET</span>
+            <span id="netflix" class="toggle-item">NET</span>
             <!--
             <input type="checkbox" id="switch1">
             <label for="switch1" class="round">
@@ -114,6 +114,8 @@
 				$('input[name=query]').addEventListener('keyup', app.sendQuery);
 				$('input[name=query]').addEventListener('focusin', app.showSearchList);
 				$('input[name=query]').addEventListener('focusout', app.hideSearchList);
+
+        app.toggle();
 			},
       toggle () {
         for (const property in app.values.toggleValue) {
