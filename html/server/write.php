@@ -19,11 +19,11 @@ $query = 'insert into review (user_idx ,title, content, piece_id, rating) values
 $result = mysqli_query($connect, $query);
 if($result){
     $_SESSION['message'] = "리뷰가 등록되었습니다.";
-	header('location:index.html');
+	header('location:piece.html?piece='.$movie);
 }
 else{
     $_SESSION['message'] = "리뷰 등록에 실패하였습니다.";
-	header('location:index.html');
+	header('location:piece.html?piece='.$movie);
 }
  
 mysqli_close($connect);
