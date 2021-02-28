@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
     <title>login Page</title>
-    <link rel="stylesheet" href="css/loginpage.css">
+    <link rel="stylesheet" href="loginpage.css">
     <style>
     a:link{color:#505050;
     text-decoration:none;
@@ -28,6 +28,7 @@ function login(){
 </script>
 </head>
 <body>
+<form name="login" action="server/login.php" method="post">
 <header>
 <div class="top" style="align:center">
 <div calss="review" style="text-align:left">
@@ -44,10 +45,10 @@ function login(){
 <section class="login-input-section-wrap">
 <div class = "watfle">WAFLE</div>
             <div class= "login-input-wrap">	
-				<input placeholder="Username" id="id" type="text"></input>
+				<input placeholder="Username" id="user_id" type="text"></input>
             </div>
             <div class="login-input-wrap pwd-wrap">
-				<input placeholder="Password" id="pwd" type="password"></input>
+				<input placeholder="Password" id="user_pwd" type="password"></input>
 			</div>
 			<div class="login-btn-wrap">
                 <button onclick= "login()" id="login">로그인</button>
@@ -57,5 +58,6 @@ function login(){
             </section>
             </div>
 	</div>
+    </form>
 </body>
 </html>
