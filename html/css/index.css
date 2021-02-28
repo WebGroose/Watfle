@@ -74,6 +74,11 @@ a{
   background-repeat: no-repeat;
   background-position: center;
 }
+.search-list{}
+.search-list—display-none{}
+.search-list__item{}
+.search-list__tag{}
+
 .account-box{
   background-image: url(../img/user.png);
   background-size: contain;
