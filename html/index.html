@@ -148,7 +148,7 @@
 					else result.forEach(v => {
 						let providerTag = '';
 						v.provider.forEach(w => { providerTag += '<span class="search-list__tag">'+w+'</span>'; });
-						resultTag += '<li class="search-list__item"><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span class="search-list__tag">'+providerTag+'</span></a></li>'; });
+						resultTag += '<li class="search-list__item"><a href="piece.html?piece='+v.id+'" class="search-list__item-link">'+v.title+'<span class="search-list__tag">'+providerTag+'</span></a></li>'; });
 						$('.search-list').innerHTML = resultTag;
 						app.values.searchTemp = query;
 					})

@@ -6,10 +6,10 @@ session_start();
                
                 
 $id = $_SESSION['user_id'];                      //Writer
-$title = $_GET['title'];                  //Title
-$content = $_GET['content'];              //Content
+// $title = $_GET['title'];                  //Title
+$content = $_POST['content'];              //Content
 $movie = $_GET['piece'];                //영화명
-$rating = $_GET['rating'];              //별점
+// $rating = $_GET['rating'];              //별점
  
 $URL = './index.php';                   //return URL
  
