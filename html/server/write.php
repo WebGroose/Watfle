@@ -1,31 +1,31 @@
 <meta charset="utf-8">
 <?php
 require_once 'config.php';
+session_start();
                
                 
-                $id = $_GET['name'];                      //Writer
-                $title = $_GET['title'];                  //Title
-                $content = $_GET['content'];              //Content
-                $movie = $_GET['piece'];                //영화명
-                $rating = $_GET['rating'];              //별점
+ $id = $_SESSION['user_id'];                      //Writer
+$title = $_GET['title'];                  //Title
+$content = $_GET['content'];              //Content
+$movie = $_GET['piece'];                //영화명
+$rating = $_GET['rating'];              //별점
  
-                $URL = './index.php';                   //return URL
- 
- 
-                $query = 'insert into review (user_idx ,title, content, piece_id, rating) values('.$id.','.$title.', '.$content.', '.$movie.', '.$rating.' );';
+$URL = './index.php';                   //return URL
  
  
-                $result = mysqli_query($connect, $query);
-                if($result){
-                    echo '<script>
-                    alert("<?php echo "리뷰가 등록되었습니다."?>");
-                    location.replace("<?php echo $URL?>");
-                </script>';
-                }
-                else{
-                        echo "FAIL";
-                }
+$query = 'insert into review (user_idx ,title, content, piece_id, rating) values('.$id.','.$title.', '.$content.', '.$movie.', '.$rating.' );';
  
-                mysqli_close($connect);
+ 
+$result = mysqli_query($connect, $query);
+if($result){
+    $_SESSION['message'] = "리뷰가 등록되었습니다.";
+	header('location:index.html');
+}
+else{
+    $_SESSION['message'] = "리뷰 등록에 실패하였습니다.";
+	header('location:index.html');
+}
+ 
+mysqli_close($connect);
 ?>
 
