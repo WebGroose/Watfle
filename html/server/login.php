@@ -1,7 +1,7 @@
 <?php
 
 // 정상적인 접근인지 확인
-if (!isset($_POST['user_id']) || !isset($_POST['user_id'])) {
+if (!isset($_POST['user_id']) || !isset($_POST['user_pw'])) {
 	header('location:index.html');
 	exit();
 }
