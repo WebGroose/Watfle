@@ -18,9 +18,9 @@
             </div>
           </a>
           <div class="toggle">
-            <a href="index.html">WAT</a>
+            <span class="toggle-item toggle-item--on">WAT</span>
             /
-            <a href="index.html">NET</a>
+            <span class="toggle-item toggle-item--on">NET</span>
             <!--
             <input type="checkbox" id="switch1">
             <label for="switch1" class="round">
@@ -104,10 +104,18 @@
 
 		const app = {
 			init () {
+        $$('.toggle-item').forEach(v => {
+          v.addEventListener('click', () => { app.toggleItem(v) });
+        });
+
 				$('input[name=query]').addEventListener('keyup', app.sendQuery);
 				$('input[name=query]').addEventListener('focusin', app.showSearchList);
 				$('input[name=query]').addEventListener('focusout', app.hideSearchList);
 			},
+      toggleItem (v) {
+        if (v.classList.contains('toggle-item--on')) v.classList.remove('toggle-item--on');
+        else v.classList.add('toggle-item--on');
+      },
 			sendQuery () {
 				let query = $('input[name=query]').value;
 				if (query == '') {

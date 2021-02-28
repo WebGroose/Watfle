@@ -55,6 +55,16 @@ a{
   line-height:20px;
   text-align:center;
 }
+.toggle-item{
+  color: #aaa;
+}
+.toggle-item:hover{
+  cursor: pointer;
+}
+.toggle-item--on{
+  color: #fff;/*imsi*/
+  text-shadow: 0 0 5px orange;
+}
 .search-box{
   display: flex;
   float:right;
