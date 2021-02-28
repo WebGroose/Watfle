@@ -34,9 +34,9 @@
             <div class="account-box"></div>
           </a>
           <div class="search-box">
+            <div class="search-box__search"></div>
             <input type="text" name="query" placeholder="검색">
-            <a href="#"><div class="search-box__search"></div></a>
-			      <!-- <ul class="search-list search-list--display-none"></ul> -->
+			      <ul class="search-list search-list--display-none"></ul>
           </div>
         </div>
       </div>
@@ -172,9 +172,6 @@
 <!--    </div>
 </div> -->
 <script type="text/javascript">
-$(window).scroll(function() {
-$('.header').css({left: 0 - $(this).scrollLeft()});
-});
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
