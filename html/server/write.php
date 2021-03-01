@@ -15,13 +15,10 @@ $result = mysqli_query($connect, $query);
 
 if($result){
     $_SESSION['message'] = "리뷰가 등록되었습니다.";
-	header('location:../piece.html?piece='.$movie);
+	header('location:../piece.php?piece='.$movie);
 }
 else{
     $_SESSION['message'] = "리뷰 등록에 실패하였습니다.";
-	header('location:../piece.html?piece='.$movie);
+	header('location:../piece.php?piece='.$movie);
 }
- 
-mysqli_close($connect);
-?>
 

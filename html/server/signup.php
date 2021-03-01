@@ -2,7 +2,7 @@
 
 // 정상적인 접근인지 확인
 if (!isset($_POST['user_id']) || !isset($_POST['user_pw'])) {
-	header('location:index.php');
+	header('location:../index.php');
 	exit();
 }
 

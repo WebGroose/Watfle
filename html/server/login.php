@@ -2,7 +2,8 @@
 
 // 정상적인 접근인지 확인
 if (!isset($_POST['user_id']) || !isset($_POST['user_pw'])) {
-	header('location:index.html');
+	$_SESSION['message'] = "비정상적인 접근입니다..!";
+	header('location:../index.php');
 	exit();
 }
 
@@ -31,7 +32,7 @@ if (!password_verify($userPW, $user[2])) {
 	exit();
 }
 
-$_SESSION['message'] = "로그인 성공..!";
 $_SESSION['user_idx'] = $user[0];
+$_SESSION['message'] = "로그인 성공..!";
 
 header('location:../index.php');
