@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include 'server/login_check.php';
+?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -10,27 +13,37 @@
     <!-- header-->
       <div class="header">
         <div class="global-width">
-          <a href="index.html">
+          <a href="index.php">
             <div class="brand">
               <div class="brand__bar"></div>
               <div class="brand__watfle">Watfle</div>
             </div>
           </a>
           <div class="toggle">
-            <a href="index.html">WAT</a>
+            <a href="#">WAT</a>
             /
-            <a href="index.html">NET</a>
-            <!--
-            <input type="checkbox" id="switch1">
+            <a href="#">NET</a>
+            
+            <!-- <input type="checkbox" id="switch1">
             <label for="switch1" class="round">
               <div class="write">
                 <div class="one">NET</div>
                 <div class="slice"> / </div>
                 <div class="two">WAT</div>
               </div>
-            </label>-->
+            </label> -->
           </div>
+          <?php
+          if($is_login){
+          ?>
           <a href="myaccount.html">
+          <?php
+          }else{
+          ?>
+            <a href="loginpage.html">
+          <?php
+          }
+          ?>
             <div class="account-box"></div>
           </a>
           <div class="search-box">
@@ -66,10 +79,11 @@
           </div>
         <!-- middle-->
           <div class="middle-review">
-            <div class="writer-box">
-              <textarea class="writer__text" placeholder="해당 영화의 리뷰를 작성하세요!" rows="5" cols="100"></textarea>
-              <button type="submit" class="writer__button">📨</button>
-            </div>
+            <form action="server/write.php" method="POST" class="writer-box">
+              <textarea name="content" class="writer__text" placeholder="해당 영화의 리뷰를 작성하세요!" rows="5" cols="100"></textarea>
+              <input type="hidden" name="piece" value="<?= $_GET['piece'] ?>">
+              <input name="submit_insert_review" type="submit" value="📨" class="writer__button">
+            </form>
           </div>
         <!--bottom-->
           <div class="bottom-review">
@@ -208,7 +222,7 @@ const app = {
       else result.forEach(v => {
         let providerTag = '';
         v.provider.forEach(w => { providerTag += '<span class="search-list__tag">'+w+'</span>'; });
-        resultTag += '<li><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span>'+providerTag+'</span></a></li>'; });
+        resultTag += '<li><a href="piece.php?piece='+v.id+'" class="search-list__item-link">'+v.title+'<span>'+providerTag+'</span></a></li>'; });
         $('.search-list').innerHTML = resultTag;
         app.searchTemp = query;
       })
