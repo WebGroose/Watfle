@@ -68,6 +68,7 @@
           <div class="middle-review">
             <form action="server/write.php" method="POST" class="writer-box">
               <textarea name="content" class="writer__text" placeholder="해당 영화의 리뷰를 작성하세요!" rows="5" cols="100"></textarea>
+              <input type="hidden" name="piece" value="<?= $_GET['piece'] ?>">
               <input name="submit_insert_review" type="submit" value="📨" class="writer__button">
             </form>
           </div>

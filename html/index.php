@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include 'server/login_check.php'
+include 'server/login_check.php';
 ?>
 <html lang="en" dir="ltr">
   <head>
@@ -8,7 +8,6 @@ include 'server/login_check.php'
     <title></title>
     <link rel="stylesheet" href="css/index.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
   </head>
   <body>
     <!-- header-->
@@ -161,7 +160,7 @@ include 'server/login_check.php'
 					else result.forEach(v => {
 						let providerTag = '';
 						v.provider.forEach(w => { providerTag += '<span class="search-list__tag">'+w+'</span>'; });
-						resultTag += '<li class="search-list__item"><a href="piece.html?id='+v.id+'" class="search-list__item-link">'+v.title+'<span class="search-list__tag">'+providerTag+'</span></a></li>'; });
+						resultTag += '<li class="search-list__item"><a href="piece.html?piece='+v.id+'" class="search-list__item-link">'+v.title+'<span class="search-list__tag">'+providerTag+'</span></a></li>'; });
 						$('.search-list').innerHTML = resultTag;
 						app.values.searchTemp = query;
 					})
