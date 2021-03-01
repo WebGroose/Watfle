@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/signuppage.css">
 </head>
 <body>
-  <form name="write_form_member" action="server/signup.php"method="post">
+  <form name="write_form_member" action="server/signup.php"method="post" class="form">
     <header>
       <div class="top" style="align:center">
         <div calss="review" style="text-align:left">
@@ -79,10 +79,10 @@
   const $ = document.querySelector.bind(document);
   const $$ = document.querySelectorAll.bind(document);
 
-  var pwd = $("#password").value;
+  /*var pwd = $("input[name=user_pw]").value;
   var num = pwd.search(/[0-9]/g);
   var eng = pwd.search(/[a-z]/ig);
-  var spe = pwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+  var spe = pwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);*/
 
   const app = {
 
@@ -107,12 +107,12 @@
     alert('비밀번호는 최소 8자리 이상입니다.');
     e.preventDefault();
   }
-  if(num<0||eng<0||spe<0){
+  /*if(num<0||eng<0||spe<0){
     alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
     e.preventDefault();
-  }
-  if(document.getElementById('user_pwd').value !='' && document.getElementById('user_pwdck').value!=''){
-    if(document.getElementById('user_pwd').value!=document.getElementById('user_pwdck').value){ 
+  }*/
+  if($('input[name=user_pw]').value != '' && $('input[name=user_pwdck]').value != ''){
+    if($('input[name=user_pw]').value != $('input[name=user_pwdck]').value){ 
       alert('비밀번호가 일치하지 않습니다.');
       e.preventDefault();
 
