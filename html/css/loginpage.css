@@ -9,12 +9,21 @@ body{
 
 }
 
+a{
+	color:#505050;
+	text-decoration:none;
+	font-weight:bold;
+}
+
 .top{
 	background-color: grey;
 	text-align: center;
 	padding:10px;
 }
 
+.review{
+
+}
 
 .oval{
 		width: 140px;
@@ -91,5 +100,9 @@ body{
 .idfind{
 	font-size: 18px;
 	margin-top: 20px;
+	color:white;
+}
+
+.signup{
 	color:white;
 }
