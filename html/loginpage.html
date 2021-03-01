@@ -6,9 +6,9 @@
   <title>login Page</title>
   <link rel="stylesheet" href="css/loginpage.css">
   <script>
-    function login(){
-      var id = document.getElementById("id").value;
-      var pwd = document.getElementById("pwd").value;
+    /*function login(){
+      var id = document.getElementById("user_id").value;
+      var pwd = document.getElementById("user_pwd").value;
 
       if(id == "min"){
         if(pwd == "1234"){
@@ -19,7 +19,22 @@
       } else{
         alert("아이디 또는 비밀번호를 잘 못 입력하였습니다.");
       }
-    }
+    }*/
+    const $ = document.querySelector.bind(document);
+		const $$ = document.querySelectorAll.bind(document);
+
+    const app = {
+      init () {
+        $('.login').addEventListener('submit',(e)=>{app.validate(e);});
+      },
+      validate(e){
+        if($('input[name=id]').value==''||$('input[name=pw]').value==''){
+          alert('공백을 모두 채워주세요!');
+          e.preventDefault();
+        }
+      }
+    };
+    document.addEventListener('DOMContentLoaded',app.init);
   </script>
 </head>
 <body>
@@ -46,7 +61,8 @@
             <input placeholder="Password" id="user_pwd" type="password"></input>
           </div>
           <div class="login-btn-wrap">
-            <button onclick= "login()" id="login">로그인</button>
+            <!--<button onclick= "login()" id="login">로그인</button>-->
+            <input type="submit" name="submit" value="로그인">
           </div>
           <p class="forget-msg">비밀번호를 잊으셨나요?</p>
           <p class="idfind">아이디 찾기 | 비밀번호 찾기 |
