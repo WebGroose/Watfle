@@ -183,15 +183,9 @@ a{
   text-align:center;
 }
 .writer__text{
-  border-radius: 15px 0 0 15px;
+  border-radius: 15px;
   resize: none;
   padding:15px;
-}
-.writer__text-star{
-  border-radius: 0 15px 15px 0;
-  resize: none;
-  padding:15px;
-  background-color: #CACAC9;
 }
 .writer__button{
   border-radius: 5px;
@@ -230,17 +224,14 @@ a{
   height:inherit;
   line-height: 35px;
   text-align: center;
-  font-size: 1.3rem;
 }
 .review-id{
+  font-size: 1.3rem;
   width:100%;
 }
 .review-tag{
+  font-size: 1.3rem;
   color: #B01414;
-  width:100%;
-}
-.review-star{
-  color: #F7EB15;
   width:100%;
 }
 .back{
