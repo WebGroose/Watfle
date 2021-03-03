@@ -23,7 +23,7 @@ include 'server/login_check.php';
             <a href="#">WAT</a>
             /
             <a href="#">NET</a>
-            
+
             <!-- <input type="checkbox" id="switch1">
             <label for="switch1" class="round">
               <div class="write">
@@ -80,7 +80,8 @@ include 'server/login_check.php';
         <!-- middle-->
           <div class="middle-review">
             <form action="server/write.php" method="POST" class="writer-box">
-              <textarea name="content" class="writer__text" placeholder="해당 영화의 리뷰를 작성하세요!" rows="5" cols="100"></textarea>
+              <textarea name="content" class="writer__text" placeholder="해당 영화의 리뷰를 작성하세요!" rows="5" cols="90"></textarea>
+              <textarea name="content" class="writer__text-star" placeholder="별점을      작성하세요!" rows="5" cols="10"></textarea>
               <input type="hidden" name="piece" value="<?= $_GET['piece'] ?>">
               <input name="submit_insert_review" type="submit" value="📨" class="writer__button">
             </form>
@@ -99,6 +100,7 @@ include 'server/login_check.php';
                 <div class="front">
                     <div class="review-id">✍🏻 min jeong</div>
                     <div class="review-tag">#Romantic #Musical</div>
+                    <div class="review-star">🌟 4.5 / 5</div>
                 </div>
                 <div class="back">
                   <div class="review-content">
@@ -126,6 +128,7 @@ include 'server/login_check.php';
                 <div class="front">
                     <div class="review-id">✍🏻 min jeong</div>
                     <div class="review-tag">#Romantic #Musical</div>
+                    <div class="review-star">🌟 4.5 / 5</div>
                 </div>
                 <div class="back">
                   <div class="review-content">
@@ -148,6 +151,7 @@ include 'server/login_check.php';
                 <div class="front">
                     <div class="review-id">✍🏻 min jeong</div>
                     <div class="review-tag">#Romantic #Musical</div>
+                    <div class="review-star">🌟 4.5 / 5</div>
                 </div>
                 <div class="back">
                   <div class="review-content">
