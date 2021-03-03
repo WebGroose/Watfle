@@ -3,16 +3,15 @@
 	padding:0;
 }
 
-
-body{
-    background-color:#282828;
-
-}
-
 a{
 	color:#505050;
 	text-decoration:none;
 	font-weight:bold;
+}
+
+body{
+	background-color:#282828;
+
 }
 
 .top{
@@ -21,29 +20,26 @@ a{
 	padding:10px;
 }
 
-.review{
-
-}
 
 .oval{
-		width: 140px;
-		height: 30px;
-		background: red;
-		border-radius: 100px / 50px;
-		color:white;
-		font-weight:bold;
+	width: 140px;
+	height: 30px;
+	background: red;
+	border-radius: 100px / 50px;
+	color:white;
+	font-weight:bold;
 }
 
 
 .main-container{
 	width:100%;
 	align-items:center;
-    margin-top: 20px;
-    background-color: #282828;
+	margin-top: 20px;
+	background-color: #282828;
 }
 
 .main-container .main-wrap{
-    width:100%;
+	width:100%;
 }
 
 .watfle{
@@ -68,10 +64,29 @@ a{
 	border: solid 1px black;
 	background: white;
 }
-.user_pwd-wrap{
+.user_pwd{
 	margin-top: 13px;
 }
-.login-input-wrap input{
+.pwdck{
+	margin-top: 13px;
+}
+
+.email{
+	margin-top:0px;
+	width: 430px;
+	height :40px;
+	border: solid 1px black;
+	background: white;
+}
+.genre{
+	margin-top:0px;
+	width: 430px;
+	height :40px;
+	border: solid 1px black;
+	background: white;
+}
+
+.signup-input-wrap input{
 	border: none;
 	width:410px;
 	margin-top: 10px;
@@ -79,30 +94,14 @@ a{
 	margin-left: 10px;
 	height:30px;
 }
-.login-btn-wrap {
+.signup-btn-wrap {
 	padding-top: 13px;
 }
-.login-btn-wrap button{
+.signup-btn-wrap button{
 	width: 430px;
 	height :48px;
 	font-size: 18px;
 	background-color:#787878;
 	color: black;
 	border: solid 1px #505050;
-}
-
-.forget-msg{
-	font-size: 14px;
-	margin-top: 20px;
-	color:white;
-}
-
-.idfind{
-	font-size: 18px;
-	margin-top: 20px;
-	color:white;
-}
-
-.signup{
-	color:white;
 }
