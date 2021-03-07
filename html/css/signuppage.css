@@ -4,12 +4,13 @@
 }
 
 a{
-		color:#505050;
-		text-decoration:none;
-		font-weight:bold;}
+	color:#505050;
+	text-decoration:none;
+	font-weight:bold;
+}
 
 body{
-    background-color:#282828;
+	background-color:#282828;
 
 }
 
@@ -21,24 +22,24 @@ body{
 
 
 .oval{
-		width: 140px;
-		height: 30px;
-		background: red;
-		border-radius: 100px / 50px;
-		color:white;
-		font-weight:bold;
+	width: 140px;
+	height: 30px;
+	background: red;
+	border-radius: 100px / 50px;
+	color:white;
+	font-weight:bold;
 }
 
 
 .main-container{
 	width:100%;
 	align-items:center;
-    margin-top: 20px;
-    background-color: #282828;
+	margin-top: 20px;
+	background-color: #282828;
 }
 
 .main-container .main-wrap{
-    width:100%;
+	width:100%;
 }
 
 .watfle{
