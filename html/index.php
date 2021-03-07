@@ -99,7 +99,7 @@ if (isset($_SESSION['message'])) {
             <div class="information">
               <div class="date">⏰ [2020-2학기] 겨울방학 아이그루스 웹프로젝트</div>
               <div class="member">
-                <div class="member-person">🌲 팀장:이호영</div>
+                <div class="member-person">🌲 팀장: 이호영</div>
                 <div class="member-person">🌱 팀원: 김민경 | 김민정 | 김예진</div>
               </div>
             </div>
