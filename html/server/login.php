@@ -1,25 +1,37 @@
-<meta charset="utf-8">
 <?php
+
+// 정상적인 접근인지 확인
+if (!isset($_POST['user_id']) || !isset($_POST['user_pw'])) {
+	header('location:index.html');
+	exit();
+}
+
 require_once 'config.php';
+session_start();
 
 $userID = $_POST['user_id'];
 $userPW = $_POST['user_pw'];
 
-$query = 'select user_id, user_pw from userdata where user_id = "'.$userID.'";';
+$query = 'select user_id, user_pw from user where user_id = "'.$userID.'";';
 $result = mysqli_query($connect, $query);
-$userdata = '';
+$user = 0;
 while ($row = mysqli_fetch_row($result)) {
-	$userdata = $row;
+	$user = $row;
 }
 
-if ($userdata == '') {
-	echo "아이디가 없음";
+if ($user == 0) {
+	$_SESSION['message'] = "없는 아이디입니다..!";
+	header('location:../index.php');
 	exit();
 }
 
-if (!password_verify($userPW, $userdata[1])) {
-	echo "비번이 다름";
+if (!password_verify($userPW, $user[1])) {
+	$_SESSION['message'] = "비밀번호가 다릅니다..!";
+	header('location:../index.php');
 	exit();
 }
 
-echo "로그인 성공";
+$_SESSION['message'] = "로그인 성공..!";
+$_SESSION['user_id'] = $userID;
+
+header('location:../index.php');

@@ -1,30 +1,32 @@
 <meta charset="utf-8">
 <?php
-               // $connect = mysqli_connect("localhost", "", "", "") or die("fail");
+require_once 'config.php';
+include 'login_check.php';s
+session_start();
+               
                 
-                $id = $_GET[name];                      //Writer
-                $title = $_GET[title];                  //Title
-                $content = $_GET[content];              //Content
-                $date = date('Y-m-d H:i:s');            //Date
+$id = $_SESSION['user_id'];                      //Writer
+// $title = $_GET['title'];                  //Title
+$content = $_POST['content'];              //Content
+$movie = $_GET['piece'];                //영화명
+// $rating = $_GET['rating'];              //별점
  
-                $URL = './index.php';                   //return URL
- 
- 
-                $query = "insert into board (number,title, content, date, id) 
-                        values(null,'$title', '$content', '$date', '$id')";
+$URL = './index.php';                   //return URL
  
  
-                $result = $connect->query($query);
-                if($result){
-?>                  <script>
-                        alert("<?php echo "리뷰가 등록되었습니다."?>");
-                        location.replace("<?php echo $URL?>");
-                    </script>
-<?php
-                }
-                else{
-                        echo "FAIL";
-                }
+$query = 'insert into review (user_idx ,title, content, piece_id, rating) values('.$id.','.$title.', '.$content.', '.$movie.', '.$rating.' );';
  
-                mysqli_close($connect);
+ 
+$result = mysqli_query($connect, $query);
+if($result){
+    $_SESSION['message'] = "리뷰가 등록되었습니다.";
+	header('location:../piece.html?piece='.$movie);
+}
+else{
+    $_SESSION['message'] = "리뷰 등록에 실패하였습니다.";
+	header('location:../piece.html?piece='.$movie);
+}
+ 
+mysqli_close($connect);
 ?>
+
