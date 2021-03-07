@@ -29,7 +29,7 @@ if (isset($_SESSION['message'])) {
       <div class="toggle">
         <span id="watcha" class="toggle-item">WAT</span>
         /
-        <span id="netflix" class="toggle- item">NET</span>
+        <span id="netflix" class="toggle-item">NET</span>
             <!--
             <input type="checkbox" id="switch1">
             <label for="switch1" class="round">
