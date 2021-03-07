@@ -1,6 +1,8 @@
 <?php
 
 // 정상적인 접근인지 확인
+session_start();
+
 if (!isset($_POST['user_id']) || !isset($_POST['user_pw'])) {
 	$_SESSION['message'] = "비정상적인 접근입니다..!";
 	header('location:../index.php');
@@ -8,7 +10,6 @@ if (!isset($_POST['user_id']) || !isset($_POST['user_pw'])) {
 }
 
 require_once 'config.php';
-session_start();
 
 $userID = $_POST['user_id'];
 $userPW = $_POST['user_pw'];
