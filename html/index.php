@@ -42,23 +42,26 @@ if (isset($_SESSION['message'])) {
           </div><!-- 
           ($is_login)
           <div class="account-box"></div> -->
-          <div class="profile-wrapper">
+          <?php
+          if ($is_login) echo '<div class="profile-wrapper">
             <div class="profile-img"></div>
             <div class="profile-btn">v</div>
-            <div class="profile-popup">
+            <div class="profile-popup profile-popup--display-none">
               <div class="profile-info">
                 <div class="profile-info__img"></div>
-                <div class="profile-info__id"></div>
+                <div class="profile-info__id">user_id</div>
               </div>
-              <ul>
-                <li><a href="myaccount.html">내 정보</a></li>
-                <li><a href="server/logout.php">로그아웃</a></li>
+              <ul class="profile-menu">
+                <li class="profile-menu__item"><a href="myaccount.html" class="profile-menu__link">내 정보</a></li>
+                <li class="profile-menu__item"><a href="server/logout.php" class="profile-menu__link">로그아웃</a></li>
               </ul>
             </div>
-          </div>
+          </div>';
+          else echo '<a href="loginpage.html" class="login-btn">로그인</a>';
+          ?>
           <div class="search-box">
             <div class="search-box__search"></div>
-            <input type="text" name="query" placeholder="검색">
+            <input type="text" name="query" placeholder="검색" class="search-box__input">
             <ul class="search-list search-list--display-none"></ul>
           </div>
         </div>
@@ -133,6 +136,8 @@ if (isset($_SESSION['message'])) {
           });
         });
 
+        $('.profile-btn').addEventListener('click', app.profilePopup);
+
         $('input[name=query]').addEventListener('keyup', app.sendQuery);
         $('input[name=query]').addEventListener('focusin', app.showSearchList);
         $('input[name=query]').addEventListener('focusout', app.hideSearchList);
@@ -185,6 +190,10 @@ if (isset($_SESSION['message'])) {
     hideSearchList () {
       console.log('focusout');
       setTimeout(() => { $('.search-list').classList.add('search-list--display-none'); }, 100);
+    },
+    profilePopup () {
+      if ($('.profile-popup').classList.contains('profile-popup--display-none')) $('.profile-popup').classList.remove('profile-popup--display-none');
+      else $('.profile-popup').classList.add('profile-popup--display-none');
     },
     values: {
       toggleValue: {
