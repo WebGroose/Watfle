@@ -29,7 +29,7 @@ a{
   text-align:center;
 }
 .brand__bar{
-  background-image: url(../img/menu.png);
+  background-image: url(../img/waffle.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,6 +43,7 @@ a{
   height:50px;
   line-height:50px;
   font-size:2rem;
+  margin-left: 2px;
 }
 .toggle{
   color:white;
@@ -183,15 +184,46 @@ a{
   text-align:center;
 }
 .writer__text{
-  border-radius: 15px 0 0 15px;
+  border-radius: 15px;
   resize: none;
   padding:15px;
 }
-.writer__text-star{
-  border-radius: 0 15px 15px 0;
-  resize: none;
-  padding:15px;
-  background-color: #CACAC9;
+/*
+#star_grade{
+  font-size: 1.5rem;
+}
+#star_grade a{
+  text-decoration: none;
+  color: gray;
+}
+#star_grade a.on{
+  color: #F7EB15;
+  box-shadow: 5px;
+}*/
+.write_review{
+}
+.star-wrap{
+}
+.star-label{
+  font-size: 1.5rem;
+  color: white;
+}
+.star{
+  font-size: 1.3rem;
+  color: #bbbbbe;
+}
+.star:hover{
+  cursor: pointer;
+}
+.item-star{
+  display: inline-block;
+  width: 15px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.twinkle{
+  color: #F7EB15;
 }
 .writer__button{
   border-radius: 5px;
