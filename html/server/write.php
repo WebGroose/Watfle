@@ -1,32 +1,24 @@
-<meta charset="utf-8">
 <?php
 require_once 'config.php';
-include 'login_check.php';s
+include 'login_check.php';
 session_start();
                
                 
-$id = $_SESSION['user_id'];                      //Writer
-// $title = $_GET['title'];                  //Title
-$content = $_POST['content'];              //Content
-$movie = $_GET['piece'];                //영화명
-// $rating = $_GET['rating'];              //별점
+$idx = $_SESSION['user_idx'];           //Writer idx
+$title = 'title';                  		//Title
+$content = $_POST['content'];           //Content
+$movie = $_POST['piece'];               //영화명
+$rating = 5;              				//별점
  
-$URL = './index.php';                   //return URL
- 
- 
-$query = 'insert into review (user_idx ,title, content, piece_id, rating) values('.$id.','.$title.', '.$content.', '.$movie.', '.$rating.' );';
- 
- 
+$query = 'insert into review (user_idx, title, content, piece_id, rating) values ("'.$idx.'", "'.$title.'", "'.$content.'", "'.$movie.'", "'.$rating.'");';
 $result = mysqli_query($connect, $query);
+
 if($result){
     $_SESSION['message'] = "리뷰가 등록되었습니다.";
-	header('location:../piece.html?piece='.$movie);
+	header('location:../piece.php?piece='.$movie);
 }
 else{
     $_SESSION['message'] = "리뷰 등록에 실패하였습니다.";
-	header('location:../piece.html?piece='.$movie);
+	header('location:../piece.php?piece='.$movie);
 }
- 
-mysqli_close($connect);
-?>
 

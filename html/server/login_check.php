@@ -1,7 +1,6 @@
 <?php
-require_once 'config.php';
   session_start();
-  if( isset( $_SESSION[ 'user_id' ] ) ) {
+  if( isset( $_SESSION[ 'user_idx' ] ) ) {
     $is_login = TRUE;
   }
 ?>
