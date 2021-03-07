@@ -32,10 +32,10 @@
         <section class="login-input-section-wrap">
           <div class = "watfle">WATFLE</div>
           <div class= "login-input-wrap">
-             <input placeholder="Username" id="user_id" type="text"></input>
+             <input name = "user_id"placeholder="Username" id="user_id" type="text"></input>
           </div>
           <div class="login-input-wrap pwd-wrap">
-           <input placeholder="Password" id="user_pwd" type="password"></input>
+           <input name = "user_pw" placeholder="Password" id="user_pwd" type="password"></input>
           </div>
           <div class="login-btn-wrap">
             <button onclick= "login()" id="login">로그인</button>
