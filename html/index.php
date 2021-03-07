@@ -47,7 +47,7 @@ if (isset($_SESSION['message'])) {
               <?php
             }else{
               ?>
-              <a href="loginpage.html">
+              <a href="loginpage.php">
                 <?php
               }
               ?>
