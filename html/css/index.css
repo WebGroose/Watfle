@@ -132,6 +132,19 @@ a{
   line-height:40px;
   text-align:center;
 }
+.profile-wrapper{
+  float: right;
+}
+.profile-img{
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/user.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+
 .content{
   width:100vw;
   min-height: calc(100vh - 50px);
