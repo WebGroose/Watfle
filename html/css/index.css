@@ -29,7 +29,7 @@ a{
   text-align:center;
 }
 .brand__bar{
-  background-image: url(../img/menu.png);
+  background-image: url(../img/waffle.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,6 +43,7 @@ a{
   height:50px;
   line-height:50px;
   font-size:2rem;
+  margin-left: 2px;
 }
 .toggle{
   color:white;
