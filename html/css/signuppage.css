@@ -3,8 +3,11 @@
 	padding:0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
 
 body{
+
     background-color:#282828;
 
 }
@@ -17,12 +20,14 @@ body{
 
 
 .oval{
-		width: 140px;
-		height: 30px;
-		background: red;
-		border-radius: 100px / 50px;
-		color:white;
-		font-weight:bold;
+	display: flex;
+	float:left;
+	width: 140px;
+	height: 30px;
+	background: red;
+	border-radius: 100px / 50px;
+	color:white;
+	font-weight:bold;
 }
 
 
@@ -45,14 +50,14 @@ body{
 }
 
 
-.login-input-section-wrap{
+.signup-input-section-wrap{
 	padding-top: 60px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.login-input-wrap{
+.signup-input-wrap{
 	margin-top:30px;
 	width: 430px;
 	height :40px;
@@ -62,7 +67,7 @@ body{
 .user_pwd{
 	margin-top: 13px;
 }
-.pwdck{
+.user_pwdck{
 	margin-top: 13px;
 }
 

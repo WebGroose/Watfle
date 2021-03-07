@@ -37,7 +37,7 @@
             <div class="signup-input-wrap pwd-wrap">
 				<input placeholder="비밀번호" name="user_pwd" type="password"></input>
 			</div>
-            <div class="signup-input-wrap pwd-wrap">
+            <div class="signup-input-wrap user_pwdck-wrap">
 				<input placeholder="비밀번호확인" name="user_pwdck" type="password"></input>
 			</div>
             <div class="email">
@@ -63,7 +63,7 @@
             <tr>
             <th>선호하는 장르:</th>
             <td>
-            <select name='job' size='1'>
+            <select name='genre' size='1'>
                  <option value='1'>선택하세요</option>
                  <option value='2'>a</option>
                  <option value='3'>b</option>
@@ -73,7 +73,7 @@
         </tr>
         </div>
 			<div class="signup-btn-wrap">
-               <input type="submit" name="sbmit" value="회원가입">
+               <input type="submit" name="submit" value="회원가입">
             </div>
             </section>
             </div>
@@ -86,7 +86,7 @@
 		const app = {
              var pwd = $("#password").val();
              var num = pwd.search(/[0-9]/g);
-             var eng = pwd.search(/[a-z]/ig);
+             var eng = pwd.search(/[a-zA-Z]/ig);
              var spe = pwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
             
@@ -115,7 +115,7 @@
                     e.preventDefault();
                 }
                 if(document.getElementById('user_pwd').value !='' && document.getElementById('user_pwdck').value!=''){
-                if(document.getElementById('user_pw').value==document.getElementById('user_pwdck').value){
+                if(document.getElementById('user_pwd').value==document.getElementById('user_pwdck').value){
                     alert('비밀번호가 일치합니다.');
                     e.preventDefault();
 
