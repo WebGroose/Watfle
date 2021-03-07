@@ -29,7 +29,7 @@ a{
   text-align:center;
 }
 .brand__bar{
-  background-image: url(../img/menu.png);
+  background-image: url(../img/waffle.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,6 +43,7 @@ a{
   height:50px;
   line-height:50px;
   font-size:2rem;
+  margin-left: 2px;
 }
 .toggle{
   color:white;
@@ -132,6 +133,19 @@ a{
   line-height:40px;
   text-align:center;
 }
+.profile-wrapper{
+  float: right;
+}
+.profile-img{
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/user.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+
 .content{
   width:100vw;
   min-height: calc(100vh - 50px);
