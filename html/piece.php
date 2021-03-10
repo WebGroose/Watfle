@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 include 'server/login_check.php';
 ?>
@@ -81,7 +82,19 @@ include 'server/login_check.php';
           <div class="middle-review">
             <form action="server/write.php" method="POST" class="writer-box">
               <textarea name="content" class="writer__text" placeholder="해당 영화의 리뷰를 작성하세요!" rows="5" cols="90"></textarea>
-              <textarea name="content" class="writer__text-star" placeholder="별점을      작성하세요!" rows="5" cols="10"></textarea>
+              <div class="write_review">
+                <div class="star-wrap"><br>
+                  <span class="star-label">나의 별점: </span>
+                  <span class="star">
+                    <div id="star-01" class="item-star">★</div>
+                    <div id="star-02" class="item-star">★</div>
+                    <div id="star-03" class="item-star">★</div>
+                    <div id="star-04" class="item-star">★</div>
+                    <div id="star-05" class="item-star">★</div>
+                  </span><br><br>
+                </div>
+                <input type="hidden" name="star_rate" value="<?= $myReview[0] == 0 ? 0 : $myReview[0]->rate ?>">
+              </div>
               <input type="hidden" name="piece" value="<?= $_GET['piece'] ?>">
               <input name="submit_insert_review" type="submit" value="📨" class="writer__button">
             </form>
@@ -100,7 +113,7 @@ include 'server/login_check.php';
                 <div class="front">
                     <div class="review-id">✍🏻 min jeong</div>
                     <div class="review-tag">#Romantic #Musical</div>
-                    <div class="review-star">🌟 4.5 / 5</div>
+                    <div class="review-star">🌟 4 / 5</div>
                 </div>
                 <div class="back">
                   <div class="review-content">
@@ -128,7 +141,7 @@ include 'server/login_check.php';
                 <div class="front">
                     <div class="review-id">✍🏻 min jeong</div>
                     <div class="review-tag">#Romantic #Musical</div>
-                    <div class="review-star">🌟 4.5 / 5</div>
+                    <div class="review-star">🌟 4 / 5</div>
                 </div>
                 <div class="back">
                   <div class="review-content">
@@ -151,7 +164,7 @@ include 'server/login_check.php';
                 <div class="front">
                     <div class="review-id">✍🏻 min jeong</div>
                     <div class="review-tag">#Romantic #Musical</div>
-                    <div class="review-star">🌟 4.5 / 5</div>
+                    <div class="review-star">🌟 4 / 5</div>
                 </div>
                 <div class="back">
                   <div class="review-content">
@@ -180,7 +193,7 @@ include 'server/login_check.php';
           <div class="information">
             <div class="date">⏰ [2020-2학기] 겨울방학 아이그루스 웹프로젝트</div>
             <div class="member">
-                  <div class="member-person">🌲 팀장:이호영</div>
+                  <div class="member-person">🌲 팀장: 이호영</div>
                   <div class="member-person">🌱 팀원: 김민경 | 김민정 | 김예진</div>
             </div>
           </div>
@@ -189,13 +202,54 @@ include 'server/login_check.php';
         </div>
 <!--    </div>
 </div> -->
+
 <script type="text/javascript">
+// query selector
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+const app = {
+  init () {
+    app.starRating.stopTwinkle();
+    $('.star').addEventListener('mouseover', app.starRating.twinkle);
+    $('.star').addEventListener('mouseout', app.starRating.stopTwinkle);
+    $('.star').addEventListener('click', app.starRating.rate);
+    $$('.item-star').forEach(v => {
+      v.addEventListener('mouseover', function () {
+        app.starRating.mouseover(this);
+      });
+    });
+  },
+  starRating : {
+    twinkle () {
+      let num = app.starRating.hoverID >= app.starRating.id ? app.starRating.hoverID : app.starRating.id;
+      let i = 1;
+      for (; i <= num; i++) $('#star-0'+i).classList.add('twinkle');
+        for (; i <= 5; i++) $('#star-0'+i).classList.remove('twinkle');
+      },
+    stopTwinkle () {
+      let i = 1;
+      for (; i <= app.starRating.id; i++) $('#star-0'+i).classList.add('twinkle');
+        for (; i <= 5; i++) $('#star-0'+i).classList.remove('twinkle');
+      },
+    mouseover (obj) {
+      let str = obj.id;
+      app.starRating.hoverID = str.replace('star-0', '');
+    },
+    rate () {
+      app.starRating.id = app.starRating.hoverID;
+      $('input[name=star_rate]').value = app.starRating.id;
+      app.starRating.stopTwinkle();
+    },
+    hoverID : 0,
+    id : $('input[name=star_rate]').value
+  }
+};
+document.addEventListener('DOMContentLoaded', app.init);
+
 axios.defaults.baseURL = 'http://watfle2.dothome.co.kr';
 
-const app = {
+const appp = {
   init () {
     $('input[name=query]').addEventListener('keyup', app.sendQuery);
     $('input[name=query]').addEventListener('focusin', app.showSearchList);
@@ -246,7 +300,7 @@ const app = {
   searchNum: 0
 };
 
-document.addEventListener('DOMContentLoaded', app.init);
+document.addEventListener('DOMContentLoaded', appp.init);
 </script>
   </body>
 </html>
