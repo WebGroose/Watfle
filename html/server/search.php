@@ -58,7 +58,8 @@ for ($i = 0; $i < $searchResult->total_pages; $i++) {
 		$result[] = [
 			'id' => $id,
 			'title' => $title,
-			'provider' => $provider
+			'provider' => $provider,
+			'mediaType' => $media_type
 		];
 	}
 }

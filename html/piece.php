@@ -1,3 +1,42 @@
+<?php
+
+require_once 'server/config.php';
+
+// 정상적인 접근인지 확인
+session_start();
+
+if (!isset($_GET['piece']) || !isset($_GET['mediaType'])) {
+  $_SESSION['message'] = "비정상적인 접근입니다..!";
+  header('location:index.php');
+  exit();
+}
+
+function curlGET($url) {
+  // GET 방식
+  $ch = curl_init();                                 //curl 초기화
+  curl_setopt($ch, CURLOPT_URL, $url);               //URL 지정하기
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    //요청 결과를 문자열로 반환 
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);      //connection timeout 10초 
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);   //원격 서버의 인증서가 유효한지 검사 안함
+
+  $headers = [
+    'Content-Type: application/json;charset=utf-8'
+  ];
+
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+  $response = curl_exec($ch);
+  curl_close($ch);
+
+  return json_decode($response);
+};
+
+$pieceID = $_GET['piece'];
+$mediaType = $_GET['mediaType'];
+
+$movieDetails = curlGET('https://api.themoviedb.org/3/'.$mediaType.'/'.$pieceID.'?api_key='.$api_key);
+$posterPath = $movieDetails->poster_path;
+?>
 <!DOCTYPE html>
 
 <?php
@@ -59,7 +98,7 @@ include 'server/login_check.php';
       <div class="content">
         <div class="global-width">
           <div class="top-review">
-            <div class="poster-box"></div>
+            <div class="poster-box" style="background-image: url(<?= 'https://image.tmdb.org/t/p/original/'.$posterPath ?>);"></div>
             <div class="review-box">
               <div class="review-box__title">
                 <div class="review-box__title__movie-name">✨ LA LA LAND ✨</div>
