@@ -25,9 +25,10 @@ $num = $_GET['num'];
 $query = $_GET['query'];
 
 $searchResult = curlGET('https://api.themoviedb.org/3/search/multi?api_key='.$api_key.'&language=ko&region=410&query='.urlencode($query));
+$totalPages = $searchResult->total_pages;
 
 $result = [];
-for ($i = 0; $i < $searchResult->total_pages; $i++) {
+for ($i = 0; $i < $totalPages; $i++) {
 	if ($i > 0) $searchResult = curlGET('https://api.themoviedb.org/3/search/multi?api_key='.$api_key.'&language=ko&region=410&query='.$query.'&page='.($i + 1));
 	for ($j = 0; $j < count($searchResult->results); $j++) {
 		if (count($result) >= 5) break 2;// 가공할 최대 데이터 개수 5개
