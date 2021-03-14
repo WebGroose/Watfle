@@ -16,7 +16,7 @@ $query = 'select idx from user where user_id = "'.$userID.'";';
 $result = mysqli_query($connect, $query);
 if ($row = mysqli_fetch_row($result)) {
 	$_SESSION['message'] = "이미 있는 아이디입니다..!";
-	header('location:../signuppage.html');
+	header('location:../signuppage.php');
 	exit();
 }
 
@@ -25,7 +25,7 @@ $result = mysqli_query($connect, $query);
 
 if (!$result) {
 	$_SESSION['message'] = "회원가입 오류..!";
-	header('location:../signuppage.html');
+	header('location:../signuppage.php');
 	exit();
 }
 
