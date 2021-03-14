@@ -132,9 +132,10 @@ include 'server/login_check.php';
                     <div id="star-05" class="item-star">★</div>
                   </span><br><br>
                 </div>
-                <input type="hidden" name="star_rate" value="<?= $myReview[0] == 0 ? 0 : $myReview[0]->rate ?>">
+                <input type="hidden" name="star_rate" value="0">
               </div>
-              <input type="hidden" name="piece" value="<?= $_GET['piece'] ?>">
+              <input type="hidden" name="piece" value="<?= $pieceID ?>">
+              <input type="hidden" name="mediaType" value="<?= $mediaType ?>">
               <input name="submit_insert_review" type="submit" value="📨" class="writer__button">
             </form>
           </div>
