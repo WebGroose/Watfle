@@ -136,7 +136,7 @@ if (isset($_SESSION['message'])) {
           });
         });
 
-        $('.profile-btn').addEventListener('click', app.profilePopup);
+        if ($('.profile-btn') != null) $('.profile-btn').addEventListener('click', app.profilePopup);
 
         $('input[name=query]').addEventListener('keyup', app.sendQuery);
         $('input[name=query]').addEventListener('focusin', app.showSearchList);
