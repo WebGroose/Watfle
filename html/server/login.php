@@ -23,13 +23,13 @@ while ($row = mysqli_fetch_row($result)) {
 
 if ($user == 0) {
 	$_SESSION['message'] = "없는 아이디입니다..!";
-	header('location:../loginpage.html');
+	header('location:../loginpage.php');
 	exit();
 }
 
 if (!password_verify($userPW, $user[2])) {
 	$_SESSION['message'] = "비밀번호가 다릅니다..!";
-	header('location:../loginpage.html');
+	header('location:../loginpage.php');
 	exit();
 }
 
