@@ -2,6 +2,11 @@
 
 <?php
 include 'server/login_check.php';
+  session_start();
+  if (isset($_SESSION['message'])) {
+    echo '<script type="text/javascript">alert("'.$_SESSION['message'].'");</script>';
+    unset($_SESSION['message']);
+  }
 ?>
 <html lang="en" dir="ltr">
   <head>
