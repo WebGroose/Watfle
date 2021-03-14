@@ -1,3 +1,44 @@
+<?php
+
+require_once 'server/config.php';
+
+// 정상적인 접근인지 확인
+session_start();
+
+if (!isset($_GET['piece']) || !isset($_GET['mediaType'])) {
+  $_SESSION['message'] = "비정상적인 접근입니다..!";
+  header('location:index.php');
+  exit();
+}
+
+function curlGET($url) {
+  // GET 방식
+  $ch = curl_init();                                 //curl 초기화
+  curl_setopt($ch, CURLOPT_URL, $url);               //URL 지정하기
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    //요청 결과를 문자열로 반환 
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);      //connection timeout 10초 
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);   //원격 서버의 인증서가 유효한지 검사 안함
+
+  $headers = [
+    'Content-Type: application/json;charset=utf-8'
+  ];
+
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+  $response = curl_exec($ch);
+  curl_close($ch);
+
+  return json_decode($response);
+};
+
+$pieceID = $_GET['piece'];
+$mediaType = $_GET['mediaType'];
+
+$pieceDetails = curlGET('https://api.themoviedb.org/3/'.$mediaType.'/'.$pieceID.'?api_key='.$api_key.'&language=ko');
+$posterPath = $pieceDetails->poster_path;
+$pieceTitle = $mediaType == 'movie' ? $pieceDetails->title : ($mediaType == 'tv' ? $pieceDetails->name : null);
+// $pieceGenres = $pieceDetails->genres;
+?>
 <!DOCTYPE html>
 
 <?php
@@ -64,11 +105,16 @@ include 'server/login_check.php';
       <div class="content">
         <div class="global-width">
           <div class="top-review">
-            <div class="poster-box"></div>
+            <div class="poster-box" style="background-image: url(<?= 'https://image.tmdb.org/t/p/original/'.$posterPath ?>);"></div>
             <div class="review-box">
               <div class="review-box__title">
-                <div class="review-box__title__movie-name">✨ LA LA LAND ✨</div>
-                <div class="review-box__title__tag"># Romance # Romantic</div>
+                <div class="review-box__title__movie-name">✨ <?= $pieceTitle ?> ✨</div>
+                <div class="review-box__title__tag">
+                  <?php
+                  // foreach ($pieceGenres as $value) echo ' #'.$value->name;
+                  ?>
+                  # 태그1 # 태그2
+                </div>
               </div>
               <div class="review-box__content">
                 <div class="review-box__title__content">
@@ -98,9 +144,10 @@ include 'server/login_check.php';
                     <div id="star-05" class="item-star">★</div>
                   </span><br><br>
                 </div>
-                <input type="hidden" name="star_rate" value="<?= $myReview[0] == 0 ? 0 : $myReview[0]->rate ?>">
+                <input type="hidden" name="star_rate" value="0">
               </div>
-              <input type="hidden" name="piece" value="<?= $_GET['piece'] ?>">
+              <input type="hidden" name="piece" value="<?= $pieceID ?>">
+              <input type="hidden" name="mediaType" value="<?= $mediaType ?>">
               <input name="submit_insert_review" type="submit" value="📨" class="writer__button">
             </form>
           </div>
@@ -113,7 +160,8 @@ include 'server/login_check.php';
             </div>
 
             <ul class="review">
-              <div class="plus-front_back">
+                <!-- example of review
+
                 <li class="review-total">
                 <div class="front">
                     <div class="review-id">✍🏻 min jeong</div>
@@ -140,7 +188,20 @@ include 'server/login_check.php';
                     <div>2021</div>/<div>02</div>/<div>07</div>
                   </div>
               </div>
-                </li>
+                </li> -->
+                <?php
+                /*$query = 'select user_idx, content, created, rating from review where piece_id = "'.$pieceID.'";'
+                $result = mysqli_query($connect, $query);
+                while($row = mysqli_fetch_row($result)) {
+                  $userID = 'user'.$row[0];
+                  $query2 = 'select user_id from user where idx = "'.$row[0].'";'
+                  $result2 = mysqli_query($connect, $query2);
+                  if ($row2 = mysqli_fetch_row($result2)) $userID = $row2[0];
+                  echo '<li class="review-total">
+                          <div class="front">
+                            ';
+                }*/
+                ?>
 
                 <li class="review-total">
                 <div class="front">
@@ -187,7 +248,6 @@ include 'server/login_check.php';
                   </div>
               </div>
                 </li>
-            </div>
 
             </ul>
           </div>

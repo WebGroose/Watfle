@@ -1,85 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
 *{
 	margin:0;
 	padding:0;
 }
 
+
+
+
 a{
-	color:#505050;
-	text-decoration:none;
-	font-weight:bold;
-}
+		color:#505050;
+		text-decoration:none;
+		font-weight:bold;}
 
 body{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 24px;
 	background-color:#282828;
 
 }
 
 .top{
+	align-items:center;
 	background-color: grey;
-	text-align: center;
-	padding:10px;
+	padding:15px;
 }
+	
 
-
-.oval{
+/*.oval{
+	display: flex;
+	float:left;
 	width: 140px;
 	height: 30px;
 	background: red;
 	border-radius: 100px / 50px;
 	color:white;
 	font-weight:bold;
-}
+}*/
 
 
 .main-container{
 	width:100%;
 	align-items:center;
-	margin-top: 20px;
-	background-color: #282828;
+    margin-top: 20px;
+    background-color: #282828;
+	margin-left:50px;
+	margin-right:50px;
+	color:white;
 }
 
-.main-container .main-wrap{
-	width:100%;
+.main-wrap{
+    width:100%;
 }
 
 .watfle{
 	align-items: center;
-	font-size: 42px;
+	font-size: 38px;
 	font-weight:bold;
 	color:white;
 }
 
+.id{
+	display: table;
+}
 
-.login-input-section-wrap{
-	padding-top: 60px;
+.signup-input-wrap .user-btn{
+	display:table-cell;
+}
+
+
+.signup-input-section-wrap{
+	padding-top: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.login-input-wrap{
+.signup-input-wrap{
 	margin-top:30px;
 	width: 430px;
 	height :40px;
 	border: solid 1px black;
 	background: white;
 }
+
+#id-btn{
+
+	align-items: center;
+	width:200px;
+	height:40px;
+
+}
+
 .user_pwd{
 	margin-top: 13px;
 }
-.pwdck{
+
+.user_pwdck{
 	margin-top: 13px;
 }
 
-.email{
-	margin-top:0px;
+.email1 .email_dns .emailaddr{
+	margin-top:13px;
 	width: 430px;
 	height :40px;
 	border: solid 1px black;
 	background: white;
 }
 .genre{
-	margin-top:0px;
+	display:table;
+}
+.genre1 .genre2 .genre3 .genre4{
+	display:table-cell;
+	margin-top:20px;
 	width: 430px;
 	height :40px;
 	border: solid 1px black;
@@ -95,13 +128,10 @@ body{
 	height:30px;
 }
 .signup-btn-wrap {
+	width:410px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
 	padding-top: 13px;
-}
-.signup-btn-wrap button{
-	width: 430px;
-	height :48px;
-	font-size: 18px;
-	background-color:#787878;
-	color: black;
-	border: solid 1px #505050;
 }

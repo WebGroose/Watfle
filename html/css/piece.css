@@ -135,7 +135,6 @@ a{
   height: 500px;
 }
 .poster-box{
-  background-image: url(../img/lalaland.jpg);
   background-size: cover;
   background-position: center;
   width:200px;
@@ -235,12 +234,6 @@ a{
   text-align: right;
   color:#F2F2F2;
   text-decoration: none;
-}
-.bottom-review{
-
-}
-.plus-front_back{
-  height:auto;
 }
 .review{
   margin:10px auto;
