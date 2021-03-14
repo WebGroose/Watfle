@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
 body{
+	font-family: 'Nanum Pen Script', cursive;
 	margin: 0;
 }
 
@@ -9,9 +12,10 @@ body{
 }
 
 .globalwidth{
-	width: 10000px;
+	/*width: 10000px;*/
+	 width:1024px;
 	margin: 0 auto;
-	align-items:center;
+	/*align-items:center;*/
 }
 
 header {
@@ -21,17 +25,35 @@ header {
 }
 .top{
   background-color:#505050;
-  text-align: center;
+  /*text-align: center;*/
   padding:10px;
 }
-
+.watfle{
+	margin:0;
+	width:100px;
+  height: 50px;
+	display:flex;
+}
+.brand__bar{
+	width:30px;
+  background-image: url(../img/waffle.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.brand{
+	text-align: center;
+}
 .oval{
+	/*
+	float:left;
 	width: 140px;
 	height: 30px;
 	background: red;
 	border-radius: 100px / 50px;
 	color:white;
-	font-weight:bold;
+	font-weight:bold;*/
+
 }
 
 /*.header{
@@ -43,6 +65,9 @@ header {
 	font-size: 30px;
 	line-height: 100px;
 }*/
+.search{
+	color:white;
+}
 .container{
 	height: 100vh;
 	background-color:#505050;
