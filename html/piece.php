@@ -160,95 +160,27 @@ include 'server/login_check.php';
             </div>
 
             <ul class="review">
-                <!-- example of review
-
-                <li class="review-total">
-                <div class="front">
-                    <div class="review-id">✍🏻 min jeong</div>
-                    <div class="review-tag">#Romantic #Musical</div>
-                    <div class="review-star">🌟 4 / 5</div>
-                </div>
-                <div class="back">
-                  <div class="review-content">
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.
-                    천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                    석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                    뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.<br>
-                    천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                    석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                    뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.<br>
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.
-                    천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                    석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                    뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.
-                  </div>
-                  <div class="review-date">
-                    <div>2021</div>/<div>02</div>/<div>07</div>
-                  </div>
-              </div>
-                </li> -->
                 <?php
-                /*$query = 'select user_idx, content, created, rating from review where piece_id = "'.$pieceID.'";'
+                $query = 'select user_idx, content, created, rating from review where piece_id = "'.$pieceID.'";';
                 $result = mysqli_query($connect, $query);
                 while($row = mysqli_fetch_row($result)) {
                   $userID = 'user'.$row[0];
-                  $query2 = 'select user_id from user where idx = "'.$row[0].'";'
+                  $query2 = 'select user_id from user where idx = "'.$row[0].'";';
                   $result2 = mysqli_query($connect, $query2);
                   if ($row2 = mysqli_fetch_row($result2)) $userID = $row2[0];
                   echo '<li class="review-total">
                           <div class="front">
-                            ';
-                }*/
+                            <div class="review-id">'.$userID.'</div>
+                            <div class="review-tag"># 태그1 # 태그2</div>
+                            <div class="review-star">🌟 '.$row[3].' / 5</div>
+                          </div>
+                          <div class="back">
+                            <div class="review-content">'.$row[1].'</div>
+                            <div class="review-date">'.$row[2].'</div>
+                          </div>
+                        </li>';
+                }
                 ?>
-
-                <li class="review-total">
-                <div class="front">
-                    <div class="review-id">✍🏻 min jeong</div>
-                    <div class="review-tag">#Romantic #Musical</div>
-                    <div class="review-star">🌟 4 / 5</div>
-                </div>
-                <div class="back">
-                  <div class="review-content">
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.
-                    천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                    석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                    뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.<br>
-                    천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                    석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                    뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.
-                  </div>
-                  <div class="review-date">
-                    <div>2021</div>/<div>02</div>/<div>07</div>
-                  </div>
-              </div>
-                </li>
-
-                <li class="review-total">
-                <div class="front">
-                    <div class="review-id">✍🏻 min jeong</div>
-                    <div class="review-tag">#Romantic #Musical</div>
-                    <div class="review-star">🌟 4 / 5</div>
-                </div>
-                <div class="back">
-                  <div class="review-content">
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.
-                    천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                    석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                    뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.
-                    얼마나 그들을 있으며, 그들에게 얼마나 이것이다.<br>
-                    천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                    석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                    뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.
-                  </div>
-                  <div class="review-date">
-                    <div>2021</div>/<div>02</div>/<div>07</div>
-                  </div>
-              </div>
-                </li>
-
             </ul>
           </div>
       </div>
