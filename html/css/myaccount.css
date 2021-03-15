@@ -13,26 +13,29 @@ body{
 
 .globalwidth{
 	/*width: 10000px;*/
-	 width:1024px;
+	width:1024px;
 	margin: 0 auto;
 	/*align-items:center;*/
 }
 
 header {
   position: fixed;
-  width: 100%
-
+  width: 100%;
 }
 .top{
+	font-size: 1.2rem;
   background-color:#505050;
   /*text-align: center;*/
   padding:10px;
+	height: 30px;
+		color:white;
 }
 .watfle{
 	margin:0;
 	width:100px;
-  height: 50px;
+  height: 100%;
 	display:flex;
+	float:left;
 }
 .brand__bar{
 	width:30px;
@@ -45,6 +48,8 @@ header {
 	text-align: center;
 }
 .oval{
+	float:left;
+	margin-left: 370px;
 	/*
 	float:left;
 	width: 140px;
@@ -66,7 +71,11 @@ header {
 	line-height: 100px;
 }*/
 .search{
-	color:white;
+	margin-right: 20px;
+	float:right;
+}
+.account{
+	float:right;
 }
 .container{
 	height: 100vh;
