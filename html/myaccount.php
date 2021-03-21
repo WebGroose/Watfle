@@ -14,20 +14,7 @@
           <div class="brand__watfle">Watfle</div>
         </div>
       </a>
-      <div class="toggle">
-        <span id="watcha" class="toggle-item">WAT</span>
-        /
-        <span id="netflix" class="toggle-item">NET</span>
-            <!--
-            <input type="checkbox" id="switch1">
-            <label for="switch1" class="round">
-              <div class="write">
-                <div class="one">NET</div>
-                <div class="slice"> / </div>
-                <div class="two">WAT</div>
-              </div>
-            </label>-->
-          </div><!--
+      <!--
           ($is_login)
           <div class="account-box"></div> -->
           <div class="profile-wrapper">
@@ -63,7 +50,6 @@
 			</div>
 			<div class="mytag">내가 클릭한 태그들 :</div>
 			<div class="tag"></div>
-			<a href="#" class="delete-account">회원탈퇴</a>
 		</div>
 	</div>
 	<div class="footer">

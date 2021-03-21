@@ -26,20 +26,7 @@ if (isset($_SESSION['message'])) {
           <div class="brand__watfle">Watfle</div>
         </div>
       </a>
-      <div class="toggle">
-        <span id="watcha" class="toggle-item">WAT</span>
-        /
-        <span id="netflix" class="toggle-item">NET</span>
-            <!--
-            <input type="checkbox" id="switch1">
-            <label for="switch1" class="round">
-              <div class="write">
-                <div class="one">NET</div>
-                <div class="slice"> / </div>
-                <div class="two">WAT</div>
-              </div>
-            </label>-->
-          </div><!-- 
+        <!-- 
           ($is_login)
           <div class="account-box"></div> -->
           <?php
