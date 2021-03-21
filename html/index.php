@@ -129,26 +129,11 @@ if (isset($_SESSION['message'])) {
 
       const app = {
        init () {
-        $$('.toggle-item').forEach(v => {
-          v.addEventListener('click', () => {
-            app.values.toggleValue[v.id] = !app.values.toggleValue[v.id];
-            app.toggle();
-          });
-        });
-
         if ($('.profile-btn') != null) $('.profile-btn').addEventListener('click', app.profilePopup);
 
         $('input[name=query]').addEventListener('keyup', app.sendQuery);
         $('input[name=query]').addEventListener('focusin', app.showSearchList);
         $('input[name=query]').addEventListener('focusout', app.hideSearchList);
-
-        app.toggle();
-      },
-      toggle () {
-        for (const property in app.values.toggleValue) {
-          if (app.values.toggleValue[property]) $('#'+property).classList.add('toggle-item--on');
-          else $('#'+property).classList.remove('toggle-item--on');
-        }
       },
       sendQuery () {
         let query = $('input[name=query]').value;
@@ -196,10 +181,6 @@ if (isset($_SESSION['message'])) {
       else $('.profile-popup').classList.add('profile-popup--display-none');
     },
     values: {
-      toggleValue: {
-        watcha: true,
-        netflix: true
-      },
       searchTemp: '',
       searchNum: 0
     }

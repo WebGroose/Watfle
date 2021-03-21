@@ -58,13 +58,7 @@ a{
   text-align:center;
 }
 .toggle-item{
-  color: #aaa;
-}
-.toggle-item:hover{
-  cursor: pointer;
-}
-.toggle-item--on{
-  color: #fff;/*imsi*/
+  color: #fff;
   text-shadow: 0 0 5px orange;
 }
 .search-box{
