@@ -37,7 +37,8 @@ $mediaType = $_GET['mediaType'];
 $pieceDetails = curlGET('https://api.themoviedb.org/3/'.$mediaType.'/'.$pieceID.'?api_key='.$api_key.'&language=ko');
 $posterPath = $pieceDetails->poster_path;
 $pieceTitle = $mediaType == 'movie' ? $pieceDetails->title : ($mediaType == 'tv' ? $pieceDetails->name : null);
-// $pieceGenres = $pieceDetails->genres;
+$pieceGenres = $pieceDetails->genres;
+$pieceOverview = $pieceDetails->overview;
 ?>
 <!DOCTYPE html>
 
@@ -111,21 +112,12 @@ include 'server/login_check.php';
                 <div class="review-box__title__movie-name">✨ <?= $pieceTitle ?> ✨</div>
                 <div class="review-box__title__tag">
                   <?php
-                  // foreach ($pieceGenres as $value) echo ' #'.$value->name;
+                  foreach ($pieceGenres as $value) echo ' #'.$value->name;
                   ?>
-                  # 태그1 # 태그2
                 </div>
               </div>
               <div class="review-box__content">
-                <div class="review-box__title__content">
-                  얼마나 그들을 있으며, 그들에게 얼마나 이것이다.
-                  천지는 수 만천하의 능히 그들은 없으면, 무엇이 힘차게 힘차게 보라.
-                  석가는 평화스러운 구할 붙잡아 그것은 가치를 실현에 것이다. 돋고, 꽃이 광야에서 철환하였는가?
-                  뜨고, 대한 그들은 옷을 소금이라 별과 만물은 사람은 영원히 봄바람이다.
-                  이상의 그들은 용기가 너의 인간의 피어나기 주는 이것이다. 인생을 전인 커다란 커다란 있는가?
-                  생의 튼튼하며, 구하기 싸인 장식하는 하였으며, 그림자는 것이다. 수 만물은 보이는 아니더면, 있으랴? 투명하되 것은 하는 대중을 위하여, 황금시대다.
-                </div>
-                <div class="review-box__title__name">by_minjeong</div>
+                <div class="review-box__title__content"><?= $pieceOverview ?></div>
               </div>
             </div>
           </div>
