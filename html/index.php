@@ -52,12 +52,12 @@ if (isset($_SESSION['message'])) {
                 <div class="profile-info__id">user_id</div>
               </div>
               <ul class="profile-menu">
-                <li class="profile-menu__item"><a href="myaccount.html" class="profile-menu__link">내 정보</a></li>
+                <li class="profile-menu__item"><a href="myaccount.php" class="profile-menu__link">내 정보</a></li>
                 <li class="profile-menu__item"><a href="server/logout.php" class="profile-menu__link">로그아웃</a></li>
               </ul>
             </div>
           </div>';
-          else echo '<a href="loginpage.html" class="login-btn">로그인</a>';
+          else echo '<a href="loginpage.php" class="login-btn">로그인</a>';
           ?>
           <div class="search-box">
             <div class="search-box__search"></div>
@@ -129,26 +129,11 @@ if (isset($_SESSION['message'])) {
 
       const app = {
        init () {
-        $$('.toggle-item').forEach(v => {
-          v.addEventListener('click', () => {
-            app.values.toggleValue[v.id] = !app.values.toggleValue[v.id];
-            app.toggle();
-          });
-        });
-
         if ($('.profile-btn') != null) $('.profile-btn').addEventListener('click', app.profilePopup);
 
         $('input[name=query]').addEventListener('keyup', app.sendQuery);
         $('input[name=query]').addEventListener('focusin', app.showSearchList);
         $('input[name=query]').addEventListener('focusout', app.hideSearchList);
-
-        app.toggle();
-      },
-      toggle () {
-        for (const property in app.values.toggleValue) {
-          if (app.values.toggleValue[property]) $('#'+property).classList.add('toggle-item--on');
-          else $('#'+property).classList.remove('toggle-item--on');
-        }
       },
       sendQuery () {
         let query = $('input[name=query]').value;
@@ -196,10 +181,6 @@ if (isset($_SESSION['message'])) {
       else $('.profile-popup').classList.add('profile-popup--display-none');
     },
     values: {
-      toggleValue: {
-        watcha: true,
-        netflix: true
-      },
       searchTemp: '',
       searchNum: 0
     }
