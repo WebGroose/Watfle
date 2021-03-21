@@ -52,12 +52,12 @@ if (isset($_SESSION['message'])) {
                 <div class="profile-info__id">user_id</div>
               </div>
               <ul class="profile-menu">
-                <li class="profile-menu__item"><a href="myaccount.html" class="profile-menu__link">내 정보</a></li>
+                <li class="profile-menu__item"><a href="myaccount.php" class="profile-menu__link">내 정보</a></li>
                 <li class="profile-menu__item"><a href="server/logout.php" class="profile-menu__link">로그아웃</a></li>
               </ul>
             </div>
           </div>';
-          else echo '<a href="loginpage.html" class="login-btn">로그인</a>';
+          else echo '<a href="loginpage.php" class="login-btn">로그인</a>';
           ?>
           <div class="search-box">
             <div class="search-box__search"></div>
