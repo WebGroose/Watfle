@@ -7,7 +7,7 @@
     unset($_SESSION['message']);
   }
   ?>
-  
+
 <html>
 
 <head>
@@ -17,23 +17,46 @@
 </head>
 <body>
   <form name="write_form_member" action="server/signup.php"method="post" class="form">
-    <header>
-      <div class="top" style="align:center">
-        <div calss="review" style="text-align:left">
-          <a href="index.php">=WATFLE</a> &nbsp;&nbsp;
+    <div class="header">
+      <div class="global-width">
+        <a href="#">
+          <div class="brand">
+            <div class="brand__bar"></div>
+            <div class="brand__watfle">Watfle</div>
+          </div>
+        </a>
+          <!--
+            ($is_login)
+            <div class="account-box"></div> -->
+            <?php
+            if ($is_login) echo '<div class="profile-wrapper">
+              <div class="profile-img"></div>
+              <div class="profile-btn">v</div>
+              <div class="profile-popup profile-popup--display-none">
+                <div class="profile-info">
+                  <div class="profile-info__img"></div>
+                  <div class="profile-info__id">user_id</div>
+                </div>
+                <ul class="profile-menu">
+                  <li class="profile-menu__item"><a href="myaccount.html" class="profile-menu__link">내 정보</a></li>
+                  <li class="profile-menu__item"><a href="server/logout.php" class="profile-menu__link">로그아웃</a></li>
+                </ul>
+              </div>
+            </div>';
+            else echo '<a href="loginpage.html" class="login-btn">로그인</a>';
+            ?>
+            <div class="search-box">
+              <div class="search-box__search"></div>
+              <input type="text" name="query" placeholder="검색" class="search-box__input">
+              <ul class="search-list search-list--display-none"></ul>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="oval" style="text-align:center">
-        <a href="#" >WAT</a>&nbsp;/
-        <a href="#" >NET</a>&nbsp;&nbsp;
-      </div>
-    </div>
-  </header>
   <div class="main-container">
     <div class="main-wrap">
       <section class="singup-input-section-wrap">
         <div class = "watfle">WAFLE</div>
-        <div class= "signup-input-wrap">	
+        <div class= "signup-input-wrap">
           <input placeholder="아이디" name="user_id" type="text"></input>
           <div class="id-btn">
             <button onclick= "idbtn()" id="idbtn">아이디 중복확인</button>
@@ -105,7 +128,7 @@
      e.preventDefault();
    }
    if ($('input[name=user_id]').value.length < 6) {
-     alert('아이디는 최소 6자 이상입니다.'); 
+     alert('아이디는 최소 6자 이상입니다.');
      e.preventDefault();
    }
    if ($('input[name=user_id]').value.length > 20) {
@@ -121,7 +144,7 @@
     e.preventDefault();
   }*/
   if($('input[name=user_pw]').value != '' && $('input[name=user_pwdck]').value != ''){
-    if($('input[name=user_pw]').value != $('input[name=user_pwdck]').value){ 
+    if($('input[name=user_pw]').value != $('input[name=user_pwdck]').value){
       alert('비밀번호가 일치하지 않습니다.');
       e.preventDefault();
 
