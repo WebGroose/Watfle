@@ -42,7 +42,7 @@
           </div>
           <p class="forget-msg">비밀번호를 잊으셨나요?</p>
           <p class="idfind">아이디 찾기 | 비밀번호 찾기 |
-            <a class="signup" href="signuppage.html"> 회원 가입</a></p>
+            <a class="signup" href="signuppage.php"> 회원 가입</a></p>
           </section>
         </div>
       </div>
